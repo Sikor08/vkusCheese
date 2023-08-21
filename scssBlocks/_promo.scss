@@ -1,0 +1,55 @@
+.promo{
+    position: absolute;
+    top: 80px;
+    @media (min-width: $tabletWidth) {
+        top: 60px;
+    }
+    height: 300px;
+}
+.slider{
+    position: relative;
+    max-width: 800px;
+    overflow: hidden;
+    margin: 0 auto;
+}
+.sliderLine{
+    display: flex;
+    align-items: center;
+    transition: all .5s;
+    &__img{
+    }
+}
+.sliderBtn{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 45%;
+    &__prev{
+        left: 2%;
+    }
+    &__next{
+        right: 2%;
+   }
+
+}
+.dotsWrap{
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    top: 90%;
+    left: 40%;
+}
+.sliderDot{
+    display: block;
+    width: 15px;
+    height: 15px;
+    margin-top: 3px;
+    background-color: azure;
+    &:hover{
+    background-color: $headingColor;
+    }
+    &__activeDot{
+        background-color: $headingColor;
+
+    }
+}

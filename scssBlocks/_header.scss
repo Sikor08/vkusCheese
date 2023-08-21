@@ -1,0 +1,129 @@
+.green{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: $mainColor;
+
+}
+header{
+    background-color: $mainColor;
+    transition: all ease-in-out 0.4s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+.headerWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+.logo{
+    text-transform: uppercase;
+    color: $headingColor;
+    margin-left: 23px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    @media (min-width: $tabletWidth) {
+        display: none;
+    }
+}
+.headerNav{
+    display: none;
+    @media (min-width: $tabletWidth) {
+        display: flex;
+        padding: 0 50px;
+        flex-grow: 1;
+    }
+}
+.headerNavList{
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+.headerNavLink{
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: $headingColor;
+    font-size: large;
+}
+.burger{
+}
+.burgerMenu{
+    position: fixed;
+    top: 0;
+    transition: .4s ease-in-out;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: #eee;
+
+    @media (min-width: $tabletWidth) {
+        width: 200px;
+    }
+    &__active{
+        position: absolute;
+        left: 0;
+        transition: .4s ease-in-out;
+        scrollbar-width: none;  /* Firefox */
+    }
+}
+.burgerBtn{
+    position: absolute;
+    z-index: 1;
+    top: 27px;
+    @media (min-width: $tabletWidth) {
+       top: 20px;
+    }
+    z-index: 1;
+
+    :nth-child(2){
+        transform: translate(0%, 0%) rotate(0deg); 
+        transition: .4s ease-in-out;
+    }
+    :nth-child(3){
+        transform: translate(0%, 0%) rotate(0deg); 
+        transition: .4s ease-in-out;
+    }
+    &__active{
+        left: 20px;
+
+        :nth-child(1){
+            display: none;
+        }
+        :nth-child(2){
+            transform: translate(-50%, 0%) rotate(45deg); 
+            position: absolute;
+            transition: .4s ease-in-out;
+        }
+        :nth-child(3){
+            transform: translate(-50%, 0%) rotate(-45deg);  
+            transition: .4s ease-in-out;
+        }
+    }
+}
+.burgerLine{
+    display: block;
+    width: 20px;
+    height: 2px;
+    background-color: $headingColor;
+    margin: 4px 0;
+}
+.burgerNavList{
+    padding: 80px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+.promo{
+    position: absolute;
+    top: 80px;
+    height: 300px;
+    width: 100%;
+    &__img{
+        width: 100%;
+    }
+}

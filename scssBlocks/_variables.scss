@@ -1,0 +1,25 @@
+.container{
+    height: 2000px;
+}
+
+.wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+$mainColor: #143623;
+$headingColor: #dfb985;
+
+$tabletWidth: 768px;
+$desktopWidth: 1024px;
+
+@mixin regText {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+
+}
