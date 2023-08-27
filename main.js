@@ -29,12 +29,15 @@ const sliderImgs = document.querySelectorAll('.sliderLine__img'),
     const nextSlide = () => {
         sliderCount++;
         sliderCount >= sliderImgs.length ? sliderCount = 0 : sliderCount;
-        rollSlide()
+        rollSlide();
+        thisSlide(sliderCount);
     }
     const prevSlide = () => {
         sliderCount--;
         sliderCount < 0 ? sliderCount = sliderImgs.length - 1 : sliderCount;
-        rollSlide()
+        rollSlide();
+        thisSlide(sliderCount);
+
     }
     nextBtn.addEventListener('click', () => {
         nextSlide();
@@ -42,8 +45,21 @@ const sliderImgs = document.querySelectorAll('.sliderLine__img'),
     prevBtn.addEventListener('click', () => {
         prevSlide()
     })
-    setInterval(() => {
-        nextSlide()
-    }, 2000);
+    const thisSlide = (index) => {
+        sliderDots.forEach(item => {item.classList.remove('sliderDot__activeDot');
+        sliderDots[index].classList.add('sliderDot__activeDot')
+
+        })
+    }
+    sliderDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            sliderCount = index;
+            rollSlide();
+            thisSlide(sliderCount)
+        })
+    })
+    // setInterval(() => {
+    //     nextSlide()
+    // }, 5000);
     
 

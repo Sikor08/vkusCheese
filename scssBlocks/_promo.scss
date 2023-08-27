@@ -1,21 +1,23 @@
 .promo{
     position: absolute;
     top: 80px;
+    left: 0;
+    height: 300px;
+
     @media (min-width: $tabletWidth) {
         top: 60px;
     }
-    height: 300px;
 }
 .slider{
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     overflow: hidden;
     margin: 0 auto;
 }
 .sliderLine{
     display: flex;
     align-items: center;
-    transition: all .5s;
+    transition: all 1s;
     &__img{
     }
 }
@@ -38,6 +40,10 @@
     position: absolute;
     top: 90%;
     left: 40%;
+    @media (min-width: $tabletWidth) {
+        left: 44%;
+    }
+
 }
 .sliderDot{
     display: block;
@@ -45,9 +51,7 @@
     height: 15px;
     margin-top: 3px;
     background-color: azure;
-    &:hover{
-    background-color: $headingColor;
-    }
+
     &__activeDot{
         background-color: $headingColor;
 

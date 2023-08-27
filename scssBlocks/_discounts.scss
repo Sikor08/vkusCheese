@@ -1,0 +1,69 @@
+.discounts{
+    padding-top: 330px;
+    @media (min-width: $tabletWidth) {
+        padding-top: 600px;
+    }
+    &__heading{
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: $headingColor;
+    }
+}
+.discountsWrap{
+    display: flex;
+    flex-direction: column;
+}
+.discountsList{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    overflow-x: scroll;
+    gap: 10px;
+    padding-bottom: 20px;
+    @media (min-width: $tabletWidth) {
+        gap: 20px;
+    }
+}
+.discountsItem{
+    width: 130px;
+    height: 130px;
+    border-bottom-right-radius: 25%;
+    border-top-left-radius: 25%;
+    background-size: cover;
+    @media (min-width: $tabletWidth) {
+        width: 220px;
+        height: 220px;
+    }
+    &__1{
+        background-image: url(img/discounts1.jpg);
+    }
+    &__2{
+        background-image: url(img/discounts2.jpg);
+    }
+    &__3{
+        background-image: url(img/discounts3.jpg);
+    }
+    &__4{
+        background-image: url(img/discounts4.jpg);
+    }
+    &__5{
+        background-image: url(img/discounts5.jpg);
+    }
+    &__6{
+        background-image: url(img/discounts6.jpg);
+    }
+    &__7{
+        background-image: url(img/discounts7.jpg);
+    }
+    &__8{
+        background-image: url(img/discounts8.jpg);
+    }
+}
+.catalogBtn{
+    display: flex;
+    margin: auto;
+    background-color: $mainColor;
+    color: $headingColor;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 5px 15px;
+    border-radius: 5%;
+}

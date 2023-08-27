@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -160,6 +160,7 @@ header {
 .promo {
   position: absolute;
   top: 80px;
+  left: 0;
   height: 300px;
 }
 @media (min-width: 768px) {
@@ -170,7 +171,7 @@ header {
 
 .slider {
   position: relative;
-  max-width: 800px;
+  max-width: 1200px;
   overflow: hidden;
   margin: 0 auto;
 }
@@ -178,7 +179,7 @@ header {
 .sliderLine {
   display: flex;
   align-items: center;
-  transition: all 0.5s;
+  transition: all 1s;
 }
 .sliderBtn {
   width: 30px;
@@ -200,6 +201,11 @@ header {
   top: 90%;
   left: 40%;
 }
+@media (min-width: 768px) {
+  .dotsWrap {
+    left: 44%;
+  }
+}
 
 .sliderDot {
   display: block;
@@ -208,9 +214,86 @@ header {
   margin-top: 3px;
   background-color: azure;
 }
-.sliderDot:hover {
-  background-color: #dfb985;
-}
 .sliderDot__activeDot {
   background-color: #dfb985;
+}
+
+.discounts {
+  padding-top: 330px;
+}
+@media (min-width: 768px) {
+  .discounts {
+    padding-top: 600px;
+  }
+}
+.discounts__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: #dfb985;
+}
+
+.discountsWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.discountsList {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr 1fr;
+  overflow-x: scroll;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+@media (min-width: 768px) {
+  .discountsList {
+    gap: 20px;
+  }
+}
+
+.discountsItem {
+  width: 130px;
+  height: 130px;
+  border-bottom-right-radius: 25%;
+  border-top-left-radius: 25%;
+  background-size: cover;
+}
+@media (min-width: 768px) {
+  .discountsItem {
+    width: 220px;
+    height: 220px;
+  }
+}
+.discountsItem__1 {
+  background-image: url(img/discounts1.jpg);
+}
+.discountsItem__2 {
+  background-image: url(img/discounts2.jpg);
+}
+.discountsItem__3 {
+  background-image: url(img/discounts3.jpg);
+}
+.discountsItem__4 {
+  background-image: url(img/discounts4.jpg);
+}
+.discountsItem__5 {
+  background-image: url(img/discounts5.jpg);
+}
+.discountsItem__6 {
+  background-image: url(img/discounts6.jpg);
+}
+.discountsItem__7 {
+  background-image: url(img/discounts7.jpg);
+}
+.discountsItem__8 {
+  background-image: url(img/discounts8.jpg);
+}
+
+.catalogBtn {
+  display: flex;
+  margin: auto;
+  background-color: #143623;
+  color: #dfb985;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  padding: 5px 15px;
+  border-radius: 5%;
 }/*# sourceMappingURL=style.css.map */
