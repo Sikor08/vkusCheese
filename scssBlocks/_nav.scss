@@ -1,0 +1,35 @@
+.bottomNav{
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: -webkit-fill-available;
+    background: $mainColor;
+    border-radius: 50px/50px;
+    opacity: .9;
+    @media (min-width: $tabletWidth) {
+        display: none;
+    }
+}
+.bottomNavList{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    height: 55px;
+}
+.bottomNavItem{
+    position: absolute;
+    &__reg{
+        right: 5%;
+        top: 20%;
+    }
+    &__cart{
+        left: 45%;
+        top: 15%;
+    }
+    &__catalog{
+        left: 5%;
+        top: 20%;
+    }
+}
+

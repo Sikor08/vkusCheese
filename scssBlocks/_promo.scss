@@ -2,7 +2,6 @@
     position: absolute;
     top: 80px;
     left: 0;
-    height: 300px;
 
     @media (min-width: $tabletWidth) {
         top: 60px;
@@ -10,14 +9,18 @@
 }
 .slider{
     position: relative;
-    max-width: 1200px;
+    max-width: 900px;
     overflow: hidden;
     margin: 0 auto;
+    height: 250px;
+    @media (min-width: $tabletWidth) {
+        height: 350px;
+    }
 }
 .sliderLine{
     display: flex;
     align-items: center;
-    transition: all 1s;
+    transition: ease-in-out 1s;
     &__img{
     }
 }
@@ -38,8 +41,8 @@
     display: flex;
     gap: 20px;
     position: absolute;
-    top: 90%;
-    left: 40%;
+    top: 85%;
+    left: 35%;
     @media (min-width: $tabletWidth) {
         left: 44%;
     }
@@ -47,8 +50,9 @@
 }
 .sliderDot{
     display: block;
-    width: 15px;
-    height: 15px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
     margin-top: 3px;
     background-color: azure;
 

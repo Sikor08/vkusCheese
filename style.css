@@ -1,5 +1,5 @@
 .container {
-  height: 2000px;
+  height: 1500px;
 }
 
 .wrapper {
@@ -58,8 +58,11 @@ header {
 @media (min-width: 768px) {
   .headerNav {
     display: flex;
-    padding: 0 50px;
+    padding: 10px;
     flex-grow: 1;
+  }
+  .headerNav__cartItem {
+    display: none;
   }
 }
 
@@ -67,6 +70,7 @@ header {
   display: flex;
   justify-content: space-between;
   flex-grow: 1;
+  margin-left: 35px;
 }
 
 .headerNavLink {
@@ -100,7 +104,6 @@ header {
   position: absolute;
   z-index: 1;
   top: 27px;
-  z-index: 1;
 }
 @media (min-width: 768px) {
   .burgerBtn {
@@ -161,7 +164,6 @@ header {
   position: absolute;
   top: 80px;
   left: 0;
-  height: 300px;
 }
 @media (min-width: 768px) {
   .promo {
@@ -171,15 +173,21 @@ header {
 
 .slider {
   position: relative;
-  max-width: 1200px;
+  max-width: 900px;
   overflow: hidden;
   margin: 0 auto;
+  height: 250px;
+}
+@media (min-width: 768px) {
+  .slider {
+    height: 350px;
+  }
 }
 
 .sliderLine {
   display: flex;
   align-items: center;
-  transition: all 1s;
+  transition: ease-in-out 1s;
 }
 .sliderBtn {
   width: 30px;
@@ -198,8 +206,8 @@ header {
   display: flex;
   gap: 20px;
   position: absolute;
-  top: 90%;
-  left: 40%;
+  top: 85%;
+  left: 35%;
 }
 @media (min-width: 768px) {
   .dotsWrap {
@@ -209,8 +217,9 @@ header {
 
 .sliderDot {
   display: block;
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 100%;
   margin-top: 3px;
   background-color: azure;
 }
@@ -219,11 +228,13 @@ header {
 }
 
 .discounts {
-  padding-top: 330px;
+  margin: 100px auto;
+  max-width: 1200px;
+  padding: 220px 7px 0 7px;
 }
 @media (min-width: 768px) {
   .discounts {
-    padding-top: 600px;
+    padding-top: 300px;
   }
 }
 .discounts__heading {
@@ -238,8 +249,7 @@ header {
 
 .discountsList {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   overflow-x: scroll;
   gap: 10px;
   padding-bottom: 20px;
@@ -294,6 +304,50 @@ header {
   background-color: #143623;
   color: #dfb985;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  padding: 5px 15px;
+  padding: 10px 25px;
   border-radius: 5%;
+}
+@media (min-width: 768px) {
+  .catalogBtn {
+    padding: 15px 35px;
+  }
+}
+
+.bottomNav {
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  width: -webkit-fill-available;
+  background: #143623;
+  border-radius: 50px/50px;
+  opacity: 0.9;
+}
+@media (min-width: 768px) {
+  .bottomNav {
+    display: none;
+  }
+}
+
+.bottomNavList {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 55px;
+}
+
+.bottomNavItem {
+  position: absolute;
+}
+.bottomNavItem__reg {
+  right: 5%;
+  top: 20%;
+}
+.bottomNavItem__cart {
+  left: 45%;
+  top: 15%;
+}
+.bottomNavItem__catalog {
+  left: 5%;
+  top: 20%;
 }/*# sourceMappingURL=style.css.map */

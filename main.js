@@ -18,11 +18,14 @@ const sliderImgs = document.querySelectorAll('.sliderLine__img'),
 //response
     const showSlide = () => {
         sliderWidth = document.querySelector('.slider').offsetWidth;
-        sliderLine.style.width = sliderWidth * sliderImgs.length + 'px';
+        sliderLine.style.width = `${sliderWidth * sliderImgs.length}px`;
         sliderImgs.forEach(item => item.style.width = sliderWidth + 'px');
-    }
+        sliderImgs.forEach(item => item.style.height = 100 + '%');
 
-    window.addEventListener('resize', showSlide());
+    }
+    window.addEventListener('resize', () => {
+        showSlide()
+    });
     const rollSlide = () => {
         sliderLine.style.transform = `translateX(${- sliderCount * sliderWidth}px)`
     }
@@ -58,8 +61,9 @@ const sliderImgs = document.querySelectorAll('.sliderLine__img'),
             thisSlide(sliderCount)
         })
     })
-    // setInterval(() => {
-    //     nextSlide()
-    // }, 5000);
+    setInterval(() => {
+        nextSlide()
+    }, 2000);
     
+    window.addEventListener('resize', showSlide());
 

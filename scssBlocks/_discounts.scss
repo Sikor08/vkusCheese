@@ -1,7 +1,9 @@
 .discounts{
-    padding-top: 330px;
+    margin: 100px auto;
+    max-width: 1200px;
+    padding: 220px 7px 0 7px;
     @media (min-width: $tabletWidth) {
-        padding-top: 600px;
+        padding-top: 300px;
     }
     &__heading{
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -14,8 +16,7 @@
 }
 .discountsList{
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: repeat(6, 1fr);
     overflow-x: scroll;
     gap: 10px;
     padding-bottom: 20px;
@@ -64,6 +65,10 @@
     background-color: $mainColor;
     color: $headingColor;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 5px 15px;
+    padding: 10px 25px;
     border-radius: 5%;
+    @media (min-width: $tabletWidth) {
+        padding: 15px 35px;
+
+    }
 }
