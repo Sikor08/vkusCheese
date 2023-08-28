@@ -1,0 +1,36 @@
+.contacts{
+    // background-color: $mainColor;
+    height: 500px;
+    &__heading{
+        @include blockHeading;
+        
+    }
+}
+.listHeading{
+    @include blockHeading;
+    font-size: 15px;
+    color: black;
+
+
+}
+.listWrap{
+    display: flex;
+    justify-content: space-between;
+}
+.contactsList{
+    display: grid;
+    gap: 10px;
+}
+.contact{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    &__link{
+        text-decoration: none;
+        color: black;
+    }
+}
+.location{
+    display: flex;
+    align-items: center;
+}

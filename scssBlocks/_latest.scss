@@ -1,0 +1,31 @@
+.latest{
+    &__heading{
+        @include blockHeading
+    }
+}
+.latestWrap{
+    display: flex;
+    flex-direction: column;
+}
+.latestList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.latestGood{
+    height: 200px;
+    border: 1px solid #000;
+}
+.catalogBtn{
+    margin: auto;
+    background-color: $mainColor;
+    color: $headingColor;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    padding: 10px 25px;
+    border-radius: 5%;
+    @media (min-width: $tabletWidth) {
+        padding: 15px 35px;
+
+    }
+}

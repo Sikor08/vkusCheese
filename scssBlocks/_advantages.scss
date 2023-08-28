@@ -1,0 +1,30 @@
+.advantages{
+    &__heading{
+        @include blockHeading
+    }
+}
+.advantagesWrap{
+    background-color: $mainColor;
+    opacity: .9;
+
+    &__heading{
+        @include blockHeading
+    }
+}
+.advantagesList{
+    padding: 20px 0;
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.advantage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__text{
+        margin: 10px 0;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: #dfb985;
+        font-size: 15px;
+    }
+}

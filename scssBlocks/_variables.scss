@@ -1,10 +1,9 @@
 .container{
-    height: 1500px;
     // background-color: #143623;
 }
 
 .wrapper{
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 10px;
 }
@@ -16,11 +15,14 @@ ul{
 $mainColor: #143623;
 $headingColor: #dfb985;
 
-$tabletWidth: 768px;
+$tabletWidth: 500px;
 $desktopWidth: 1024px;
-
+@mixin blockHeading {
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 22px;
+    color: #dfb985;
+}
 @mixin regText {
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-
 
 }

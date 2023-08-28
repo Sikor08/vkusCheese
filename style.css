@@ -1,9 +1,5 @@
-.container {
-  height: 1500px;
-}
-
 .wrapper {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 10px;
 }
@@ -46,7 +42,7 @@ header {
   margin-left: 23px;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .logo {
     display: none;
   }
@@ -55,7 +51,7 @@ header {
 .headerNav {
   display: none;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .headerNav {
     display: flex;
     padding: 10px;
@@ -88,7 +84,7 @@ header {
   height: 100vh;
   background-color: #eee;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .burgerMenu {
     width: 200px;
   }
@@ -105,7 +101,7 @@ header {
   z-index: 1;
   top: 27px;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .burgerBtn {
     top: 20px;
   }
@@ -165,7 +161,7 @@ header {
   top: 80px;
   left: 0;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .promo {
     top: 60px;
   }
@@ -178,7 +174,7 @@ header {
   margin: 0 auto;
   height: 250px;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .slider {
     height: 350px;
   }
@@ -209,7 +205,7 @@ header {
   top: 85%;
   left: 35%;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .dotsWrap {
     left: 44%;
   }
@@ -228,23 +224,26 @@ header {
 }
 
 .discounts {
-  margin: 100px auto;
+  margin: 100px auto 0;
   max-width: 1200px;
   padding: 220px 7px 0 7px;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .discounts {
     padding-top: 300px;
   }
 }
 .discounts__heading {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
   color: #dfb985;
 }
 
 .discountsWrap {
   display: flex;
   flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
 }
 
 .discountsList {
@@ -252,10 +251,10 @@ header {
   grid-template-columns: repeat(6, 1fr);
   overflow-x: scroll;
   gap: 10px;
-  padding-bottom: 20px;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .discountsList {
+    grid-template-columns: repeat(12, 1fr);
     gap: 20px;
   }
 }
@@ -267,7 +266,7 @@ header {
   border-top-left-radius: 25%;
   background-size: cover;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .discountsItem {
     width: 220px;
     height: 220px;
@@ -298,31 +297,17 @@ header {
   background-image: url(img/discounts8.jpg);
 }
 
-.catalogBtn {
-  display: flex;
-  margin: auto;
-  background-color: #143623;
-  color: #dfb985;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
-  padding: 10px 25px;
-  border-radius: 5%;
-}
-@media (min-width: 768px) {
-  .catalogBtn {
-    padding: 15px 35px;
-  }
-}
-
 .bottomNav {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   left: 0;
+  z-index: 2;
   width: -webkit-fill-available;
   background: #143623;
   border-radius: 50px/50px;
   opacity: 0.9;
 }
-@media (min-width: 768px) {
+@media (min-width: 500px) {
   .bottomNav {
     display: none;
   }
@@ -350,4 +335,153 @@ header {
 .bottomNavItem__catalog {
   left: 5%;
   top: 20%;
+}
+
+.latest__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+}
+
+.latestWrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.latestList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding-bottom: 20px;
+}
+
+.latestGood {
+  height: 200px;
+  border: 1px solid #000;
+}
+
+.catalogBtn {
+  margin: auto;
+  background-color: #143623;
+  color: #dfb985;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  padding: 10px 25px;
+  border-radius: 5%;
+}
+@media (min-width: 500px) {
+  .catalogBtn {
+    padding: 15px 35px;
+  }
+}
+
+.partners__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+}
+
+.partnersList {
+  display: grid;
+  gap: 15px;
+}
+@media (min-width: 500px) {
+  .partnersList {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+}
+
+.partner {
+  position: relative;
+  max-height: 240px;
+  background-size: cover;
+}
+.partner__img {
+  width: 100%;
+  height: 100%;
+}
+.partner__title {
+  margin-left: 5px;
+  position: absolute;
+  bottom: -10px;
+  text-transform: uppercase;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.advantages__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+}
+
+.advantagesWrap {
+  background-color: #143623;
+  opacity: 0.9;
+}
+.advantagesWrap__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+}
+
+.advantagesList {
+  padding: 20px 0;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.advantage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.advantage__text {
+  margin: 10px 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  color: #dfb985;
+  font-size: 15px;
+}
+
+.contacts {
+  height: 500px;
+}
+.contacts__heading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+}
+
+.listHeading {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
+  font-size: 22px;
+  color: #dfb985;
+  font-size: 15px;
+  color: black;
+}
+
+.listWrap {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contactsList {
+  display: grid;
+  gap: 10px;
+}
+
+.contact {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.contact__link {
+  text-decoration: none;
+  color: black;
+}
+
+.location {
+  display: flex;
+  align-items: center;
 }/*# sourceMappingURL=style.css.map */

@@ -1,26 +1,28 @@
 .discounts{
-    margin: 100px auto;
+    margin: 100px auto 0;
     max-width: 1200px;
     padding: 220px 7px 0 7px;
     @media (min-width: $tabletWidth) {
         padding-top: 300px;
     }
     &__heading{
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        color: $headingColor;
+        @include blockHeading
     }
 }
 .discountsWrap{
     display: flex;
     flex-direction: column;
+    max-width: 1000px;
+    margin: auto;
 }
 .discountsList{
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     overflow-x: scroll;
     gap: 10px;
-    padding-bottom: 20px;
     @media (min-width: $tabletWidth) {
+        grid-template-columns: repeat(12, 1fr);
+
         gap: 20px;
     }
 }
@@ -57,18 +59,5 @@
     }
     &__8{
         background-image: url(img/discounts8.jpg);
-    }
-}
-.catalogBtn{
-    display: flex;
-    margin: auto;
-    background-color: $mainColor;
-    color: $headingColor;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    padding: 10px 25px;
-    border-radius: 5%;
-    @media (min-width: $tabletWidth) {
-        padding: 15px 35px;
-
     }
 }

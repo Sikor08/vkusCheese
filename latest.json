@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "img": "img/discounts2.jpg",
+        "title": "Пармезан",
+        "price": 100
+    },
+    {
+        "id": "2",
+        "img": "img/discounts2.jpg",
+        "title": "Каприно",
+        "price": 200
+    },
+    {
+        "id": "1",
+        "img": "img/discounts2.jpg",
+        "title": "Козий",
+        "price": 150
+    },
+    {
+        "id": "1",
+        "img": "img/discounts2.jpg",
+        "title": "Гаоганзола",
+        "price": 300
+    }
+]
