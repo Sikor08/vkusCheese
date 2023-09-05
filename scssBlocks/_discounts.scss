@@ -30,6 +30,17 @@
     }
 }
 .discountsItem{
+    &_false{
+        .discountsItem__icon{
+            display: none;
+        }
+    }
+    &__icon{
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+    position: relative;
     width: 130px;
     height: 130px;
     border-bottom-right-radius: 25%;

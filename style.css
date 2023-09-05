@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .wrapper {
   max-width: 1000px;
   margin: 0 auto;
@@ -304,11 +308,20 @@ header {
 }
 
 .discountsItem {
+  position: relative;
   width: 130px;
   height: 130px;
   border-bottom-right-radius: 25%;
   border-top-left-radius: 25%;
   background-size: cover;
+}
+.discountsItem_false .discountsItem__icon {
+  display: none;
+}
+.discountsItem__icon {
+  position: absolute;
+  top: 5px;
+  right: 5px;
 }
 @media (min-width: 500px) {
   .discountsItem {
@@ -469,7 +482,7 @@ header {
 .partner__title {
   margin-left: 5px;
   position: absolute;
-  bottom: -10px;
+  bottom: 5px;
   text-transform: uppercase;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   font-size: 20px;
