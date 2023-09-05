@@ -17,36 +17,38 @@ header{
     z-index: 2;
 }
 .headerWrap{
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 .logo{
     text-transform: uppercase;
     color: $headingColor;
-    margin-left: 23px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     @media (min-width: $tabletWidth) {
         display: none;
     }
 }
 .headerNav{
-    display: none;
     @media (min-width: $tabletWidth) {
         &__cartItem{
             display: none;
         }
         display: flex;
-        padding: 10px;
         flex-grow: 1;
+        z-index: 10;
     }
 }
 .headerNavList{
-    display: flex;
-    justify-content: space-between;
-    flex-grow: 1;
-    margin-left: 35px;
+    display: none;
+    @media (min-width: $tabletWidth) {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        padding: 0 60px;
+    }
 }
 .headerNavLink{
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -54,7 +56,14 @@ header{
     font-size: large;
 }
 .burger{
-
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 38px;
+    left: 10px;
+    @media (min-width: $tabletWidth) {
+        top: 20px;
+     }
 }
 .burgerMenu{
     position: fixed;
@@ -68,8 +77,10 @@ header{
     @media (min-width: $tabletWidth) {
         width: 200px;
     }
+    @media (min-width: $desktopWidth) {
+        width: 250px;
+    }
     &__active{
-        position: absolute;
         left: 0;
         transition: .4s ease-in-out;
         scrollbar-width: none;  /* Firefox */
@@ -78,11 +89,6 @@ header{
 .burgerBtn{
     position: absolute;
     z-index: 1;
-    top: 27px;
-    @media (min-width: $tabletWidth) {
-       top: 20px;
-    }
-
     :nth-child(2){
         transform: translate(0%, 0%) rotate(0deg); 
         transition: .4s ease-in-out;
@@ -92,8 +98,6 @@ header{
         transition: .4s ease-in-out;
     }
     &__active{
-        left: 20px;
-
         :nth-child(1){
             display: none;
         }
@@ -121,6 +125,14 @@ header{
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+.telLink{
+    position: absolute;
+    top: 35px;
+    right: 10px;
+    @media (min-width: $tabletWidth) {
+        top: 15px;
+     }
 }
 .promo{
     position: absolute;

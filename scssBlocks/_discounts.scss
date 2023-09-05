@@ -5,6 +5,9 @@
     @media (min-width: $tabletWidth) {
         padding-top: 300px;
     }
+    @media (min-width: $desktopWidth) {
+        padding-top: 500px;
+    }
     &__heading{
         @include blockHeading
     }

@@ -9,12 +9,14 @@
 }
 .slider{
     position: relative;
-    max-width: 900px;
     overflow: hidden;
     margin: 0 auto;
     height: 250px;
     @media (min-width: $tabletWidth) {
         height: 350px;
+    }
+    @media (min-width: $desktopWidth) {
+        height: 550px;
     }
 }
 .sliderLine{
@@ -22,6 +24,8 @@
     align-items: center;
     transition: ease-in-out 1s;
     &__img{
+        height: 100%;
+        width: 100%;
     }
 }
 .sliderBtn{

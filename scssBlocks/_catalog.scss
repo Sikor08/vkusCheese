@@ -1,0 +1,49 @@
+.catalog{
+    padding: 100px 0 0;
+}
+.catalogFiltres{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.catalogList{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 10px;
+    padding-bottom: 30px;
+}
+
+.catalogGood{
+    border: 1px solid #c5c4c4;
+    border-radius: 10px;
+    &__info{
+        padding: 3px  ;
+    }
+    &__title{
+        height: 70px;
+    }
+    &__img{
+        width: 100%;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+
+        height: 150px;
+    }
+    &__buyBtn{
+        border: none;
+        border-radius: 50%;
+        background-color: $mainColor;
+        padding: 8px;
+        & svg{
+        }
+    }
+    &__priceCartWrap{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+    }
+    &__priceValue{
+        margin-right: 3px;
+    }
+    
+}

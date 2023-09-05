@@ -15,7 +15,11 @@
     padding: 20px 0;
     display: grid;
     justify-items: center;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    // grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    @media (min-width: 680px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 .advantage{
     display: flex;

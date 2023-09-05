@@ -14,10 +14,35 @@
     padding-bottom: 20px;
 }
 .latestGood{
-    height: 200px;
-    border: 1px solid #000;
+    border: 1px solid #c5c4c4;
+    border-radius: 10px;
+    &__info{
+        padding: 3px  ;
+    }
+    &__text{
+        height: 70px;
+    }
+    &__img{
+        width: 100%;
+        border-radius: 10px;
+    }
+    &__buyBtn{
+        border: none;
+        border-radius: 50%;
+        background-color: $mainColor;
+        padding: 8px;
+        & svg{
+        }
+    }
+}
+.priceCartWrap{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .catalogBtn{
+    border: none;
+    display: flex;
     margin: auto;
     background-color: $mainColor;
     color: $headingColor;

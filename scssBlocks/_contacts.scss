@@ -1,16 +1,20 @@
 .contacts{
     // background-color: $mainColor;
-    height: 500px;
     &__heading{
         @include blockHeading;
-        
+    }
+    &__content{
+        @media (min-width: $tabletWidth) {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }
 .listHeading{
     @include blockHeading;
     font-size: 15px;
     color: black;
-
+    margin-bottom: 10px;
 
 }
 .listWrap{
@@ -33,4 +37,14 @@
 .location{
     display: flex;
     align-items: center;
+}
+.contactsList{
+    margin-bottom: 20px;
+}
+.notice{
+    padding: 20px 0 50px;
+    &__text{
+      @include  regText
+    }
+    opacity: .8;
 }
