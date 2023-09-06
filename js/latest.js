@@ -2,7 +2,7 @@ const goodsArr = [];
 const latest = document.querySelector('.latestList')
 
 const getGood = () => {
-    fetch('latest.json').then(str => str.json()).then(data => data.forEach(good => {
+    fetch('json/latest.json').then(str => str.json()).then(data => data.forEach(good => {
         goodsArr.push(good);
         renderGood(goodsArr)
     
@@ -47,11 +47,11 @@ const renderGood = (arr) => {
 
         const priceValueElem = document.createElement('span');
         priceValueElem.classList.add('latestGood__priceValue');
-        priceValueElem.textContent = '100р';
+        priceValueElem.textContent = good.price;
         latestGoodPriceElem.prepend(priceValueElem);
 
         const buyBtnImg = document.createElement('img');
-        buyBtnImg.setAttribute('src', 'img/cartGoodIcon.svg');
+        buyBtnImg.setAttribute('src', 'img/icons/cartGoodIcon.svg');
         priceCartWrap.append(buyBtnImg)
     })
 }

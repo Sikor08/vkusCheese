@@ -1,7 +1,7 @@
 [
     {
         "id": "1",
-        "img": "img/discounts4.jpg",
+        "img": "img/discount/discounts4.jpg",
         "title": "Пармезан",
         "text": "Выдержаный коровий сыр с Алтая, но с Итальянскими корнями",
         "price": 100,
@@ -9,7 +9,7 @@
     },
     {
         "id": "2",
-        "img": "img/discounts2.jpg",
+        "img": "img/discount/discounts2.jpg",
         "title": "Каприно",
         "text": "Выдержаный коровий сыр с Алтая, но с Итальянскими корнями",
         "price": 200,
@@ -18,7 +18,7 @@
     },
     {
         "id": "1",
-        "img": "img/discounts3.jpg",
+        "img": "img/discount/discounts3.jpg",
         "title": "Козий",
         "text": "Выдержаный коровий сыр с Алтая, но с Итальянскими корнями",
         "price": 300,
@@ -27,7 +27,7 @@
     },
     {
         "id": "1",
-        "img": "img/discounts5.jpg",
+        "img": "img/discount/discounts5.jpg",
         "title": "Гаоганзола",
         "text": "Выдержаный коровий сыр с Алтая, но с Итальянскими корнями",
         "price": 500,
