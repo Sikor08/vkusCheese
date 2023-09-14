@@ -2,7 +2,7 @@ const goodsArr = [];
 const latest = document.querySelector('.latestList')
 
 const getGood = () => {
-    fetch('json/latest.json').then(str => str.json()).then(data => data.forEach(good => {
+    fetch('https://raw.githubusercontent.com/Sikor08/EshopApi/master/latest.json').then(str => str.json()).then(data => data.forEach(good => {
         goodsArr.push(good);
         renderGood(goodsArr)
     
