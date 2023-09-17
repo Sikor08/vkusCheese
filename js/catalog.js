@@ -1,94 +1,44 @@
 const catalogList = document.querySelector('.catalogList');
 const modal = document.querySelector('.modal');
+const cartList = document.querySelector('.cartList');
 const catalogArr = [];
 let catalogFiltered = [];
-let modalArr = []
-
-// const getCatalogGoods = () => {
-//     fetch('https://raw.githubusercontent.com/Sikor08/EshopApi/master/goods.json').then(str => str.json()).then(data => data.forEach(good => {
-//         catalogArr.push(good);
-//         catalogFiltered.push(good);
-//         renderCatalogGood(catalogFiltered);
-//     })
-//     );
-// }
-// const renderCatalogGood = (arr) => {
-//     catalogList.innerHTML = ''
-//     arr.forEach(good => {
-//         const catalogGood = document.createElement('div');
-//         // catalogGood.setAttribute('href', 'goodsHtml/riet/' + good.id+ '.html');
-//         catalogGood.classList.add('catalog__link')
-//         const catalogGoodElem = document.createElement('li');
-//         catalogGoodElem.classList.add('catalogGood')
-
-//         catalogGoodElem.append(catalogGood)
+let modalArr = [];
+let local = [];
+// localStorage.setItem('cartGoods', JSON.stringify(local));
 
 
 
-//         const catalogGoodImg = document.createElement('img');
-//         catalogGoodImg.setAttribute('src', good.img);
-//         catalogGoodImg.classList.add('catalogGood__img')
-//         catalogGood.append(catalogGoodImg);
-
-//         catalogList.append(catalogGoodElem)
-
-//         const catalogGoodInfo = document.createElement('div');
-//         catalogGoodInfo.classList.add('catalogGood__info')
-//         catalogGood.append(catalogGoodInfo)
-
-//         const titleElem = document.createElement('p');
-//         titleElem.classList.add('catalogGood__title')
-//         titleElem.textContent = good.title;
-//         catalogGoodInfo.append(titleElem)
-
-//         const description = document.createElement('p');
-//         description.classList.add('catalogGood__description');
-//         description.textContent = good.description;
-//         catalogGoodInfo.append(description)
-
-//         // const textElem = document.createElement('p');
-//         // textElem.classList.add('lGood__text');
-//         // textElem.textContent = good.text;
-//         // latestGoodInfo.append(textElem);
-
-//         const catalogPriceCartWrap = document.createElement('div');
-//         catalogPriceCartWrap.classList.add('catalogGood__priceCartWrap');
-//         catalogGoodInfo.append(catalogPriceCartWrap);
-
-//         const catalogGoodPriceElem = document.createElement('p');
-//         catalogGoodPriceElem.classList.add('catalogGood__price');
-//         catalogGoodPriceElem.textContent = 'за 1 шт'
-//         catalogPriceCartWrap.append(catalogGoodPriceElem);
-
-//         const catalogPriceValueElem = document.createElement('span');
-//         catalogPriceValueElem.classList.add('catalogGood__priceValue');
-//         catalogPriceValueElem.textContent = good.price;
-//         catalogGoodPriceElem.prepend(catalogPriceValueElem);
-
-//         const buyBtnImg = document.createElement('img');
-//         buyBtnImg.setAttribute('src', 'img/icons/cartGoodIcon.svg');
-//         catalogPriceCartWrap.append(buyBtnImg);
 
 
-//     })
-// }
-const createGoodModal = (img ,description, title, price) => {
+const createGoodModal = (id, img, description, title, price) => {
     return {
+        id,
         img,
         description,
         title,
         price,
     }
 }
+const createCartGood = (id, img, title, price, quantity) => {
+    return {
+        id,
+        img,
+        title,
+        price,
+        quantity
+    }
+}
 catalogList.addEventListener('click', (element) => {
-
     const catalogData = element.target.closest('.catalogGood');
+    const id = catalogData.getAttribute('data-id');
+
     const title = catalogData.querySelector('.catalogGood__title').textContent;
     const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
     const img = catalogData.querySelector('.catalogGood__img').getAttribute('src');
     const description = catalogData.querySelector('.catalogGood__description').textContent
     if (element.target.classList.contains('catalogGood__img') || element.target.classList.contains('catalogGood__title')) {
-        modalArr.push(createGoodModal(img, description, title, price));
+        modalArr.push(createGoodModal(id, img, description, title, price));
         renderGoodModal(modalArr);
                 modal.classList.add('modal__active');
     }
@@ -110,10 +60,12 @@ searchCatalogData.addEventListener('keyup', () => {
 })
 
 const renderGoodModal = (arr) => {
+
     modal.innerHTML = ''
     arr.forEach(good => {
         const modalGood = document.createElement('div');
-        modalGood.classList.add('modalGood')
+        modalGood.classList.add('modalGood');
+        modalGood.setAttribute('data-id', good.id)
 
         const modalImg = document.createElement('img');
         modalImg.classList.add('modalGood__img');
@@ -179,7 +131,7 @@ const renderGoodModal = (arr) => {
         const byuBtn = document.createElement('button');
         byuBtn.classList.add('buyBtn')
         byuBtn.textContent = 'В корзину';
-        modalInfo.append(byuBtn)
+        modalInfo.append(byuBtn);
 
         const closeBtn = document.createElement('img');
         closeBtn.setAttribute('src', 'img/icons/closeIcon.svg');
@@ -193,4 +145,56 @@ const renderGoodModal = (arr) => {
         })
     })
 }
+const renderCartGood = (arr) => {
+    cartList.innerHTML = ''
+    arr.forEach(obj => {
+        const cartGood = document.createElement('li');
+        cartGood.classList.add('cartGood');
+        cartList.append(cartGood);
+
+        const img = document.createElement('img');
+        img.setAttribute('src', obj.img);
+        img.classList.add('cartGood__img')
+        cartGood.append(img);
+
+        const title = document.createElement('p');
+        title.classList.add('cartGood__title');
+        title.textContent = obj.title
+        cartGood.append(title);
+        
+    })
+}
+let newArr = [];
+if (localStorage.getItem('cartGoods')) {
+    newArr = JSON.parse(localStorage.getItem('cartGoods'));
+}
+
+modal.addEventListener('click', (element) => {
+    if(element.target.classList.contains('buyBtn')) {
+        const closest = element.target.closest('.modalGood');
+        const id = closest.getAttribute('data-id');
+        const img = closest.querySelector('.modalGood__img').getAttribute('src');
+        const title = closest.querySelector('.modalGood__title').textContent;
+
+        // if (localStorage.getItem('cartGoods'))
+        // users = 
+        JSON.parse(localStorage.getItem('cartGoods'));
+
+        newArr.push(createCartGood(id, img, title));
+
+
+        // console.log(newArr)
+
+        
+        localStorage.setItem('cartGoods', JSON.stringify(newArr));
+        // renderCartGood(myArr);
+        // newArr.concat(myArr)
+        renderCartGood(newArr)
+    }
+})
+renderCartGood(newArr)
+
+
+
+
 

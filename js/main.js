@@ -12,4 +12,3 @@ contactsLink.addEventListener('click', () => {
 })
 
 
-
