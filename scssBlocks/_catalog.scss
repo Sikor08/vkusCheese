@@ -128,7 +128,7 @@
     border: none;
     border-radius: 50%;
 }
-.counter{
+.modalCounter{
     display: flex;
     flex-grow: 1;
     border: 1px solid grey;
@@ -150,19 +150,64 @@
 }
    
 .cartContent{
-    height: 500px;
-    border: 1px solid #000;
-   padding: 100px 0 0 ;
+   padding: 90px 5px 0;
+   display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .cartList{
-    height: 500px;
-    background-color: #dfb985;
+    display: grid;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border-radius: 10px;
 }
 .cartGood{
-    height: 150px;
-    border: 1px solid #000;
-    &__img{
-        width: 50px;
-        height: 50px;
+    .cartGoodWrap{
+        padding: 0 5px;
+        width: 100%;
     }
+    
+    .cartGoodTop{
+        display: flex;
+        justify-content: space-between;
+    }
+    .cartGoodBottom{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+        .priceWrap{
+        }
+    }
+    display: flex;
+    border-bottom: 1px solid grey;
+    padding: 5px 0;
+    &__img{
+        width: 100px;
+        height: 105px;
+    }
+    &__btn{
+        width: 35px;
+        height: 35px;
+        background-color: $mainColor;
+        color: $headingColor;
+        border: none;
+        border-radius: 50%;
+    }
+    &__stepper{
+        display: flex;
+    }
+    &__counter{
+        display: flex;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        margin: 0 10px;
+    }
+}
+.totalCost{
+    width: 95%;
+    padding: 20px 5px;
+    border: 1px solid $mainColor;
+    border-radius: 10px;
 }

@@ -4,7 +4,7 @@ const cartList = document.querySelector('.cartList');
 const catalogArr = [];
 let catalogFiltered = [];
 let modalArr = [];
-let local = [];
+let cartArr = []
 // localStorage.setItem('cartGoods', JSON.stringify(local));
 
 
@@ -36,7 +36,7 @@ catalogList.addEventListener('click', (element) => {
     const title = catalogData.querySelector('.catalogGood__title').textContent;
     const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
     const img = catalogData.querySelector('.catalogGood__img').getAttribute('src');
-    const description = catalogData.querySelector('.catalogGood__description').textContent
+    const description = catalogData.querySelector('.catalogGood__description').textContent;
     if (element.target.classList.contains('catalogGood__img') || element.target.classList.contains('catalogGood__title')) {
         modalArr.push(createGoodModal(id, img, description, title, price));
         renderGoodModal(modalArr);
@@ -105,7 +105,7 @@ const renderGoodModal = (arr) => {
         })
 
         let counter = document.createElement('span');
-        counter.classList.add('counter')
+        counter.classList.add('modalCounter')
         counter.textContent = '1 шт';
 
         const plusBtn = document.createElement('button');
@@ -145,28 +145,10 @@ const renderGoodModal = (arr) => {
         })
     })
 }
-const renderCartGood = (arr) => {
-    cartList.innerHTML = ''
-    arr.forEach(obj => {
-        const cartGood = document.createElement('li');
-        cartGood.classList.add('cartGood');
-        cartList.append(cartGood);
 
-        const img = document.createElement('img');
-        img.setAttribute('src', obj.img);
-        img.classList.add('cartGood__img')
-        cartGood.append(img);
 
-        const title = document.createElement('p');
-        title.classList.add('cartGood__title');
-        title.textContent = obj.title
-        cartGood.append(title);
-        
-    })
-}
-let newArr = [];
 if (localStorage.getItem('cartGoods')) {
-    newArr = JSON.parse(localStorage.getItem('cartGoods'));
+    cartArr = JSON.parse(localStorage.getItem('cartGoods'));
 }
 
 modal.addEventListener('click', (element) => {
@@ -175,24 +157,23 @@ modal.addEventListener('click', (element) => {
         const id = closest.getAttribute('data-id');
         const img = closest.querySelector('.modalGood__img').getAttribute('src');
         const title = closest.querySelector('.modalGood__title').textContent;
+        let price = closest.querySelector('.modalGood__price');
+        price = parseInt(price.textContent.match(/\d+/));
+        let quantity = closest.querySelector('.modalCounter');
+        quantity = parseInt(quantity.textContent.match(/\d+/));
+        console.log(quantity)
 
         // if (localStorage.getItem('cartGoods'))
         // users = 
         JSON.parse(localStorage.getItem('cartGoods'));
 
-        newArr.push(createCartGood(id, img, title));
+        cartArr.push(createCartGood(id, img, title, price, quantity));
+        console.log(cartArr)
 
+        localStorage.setItem('cartGoods', JSON.stringify(cartArr));
 
-        // console.log(newArr)
-
-        
-        localStorage.setItem('cartGoods', JSON.stringify(newArr));
-        // renderCartGood(myArr);
-        // newArr.concat(myArr)
-        renderCartGood(newArr)
     }
 })
-renderCartGood(newArr)
 
 
 
