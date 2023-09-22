@@ -151,14 +151,17 @@ const renderGoodModal = (arr) => {
         cartArr.forEach(item => {
             if (item.id == good.id) {
                 byuBtn.textContent = 'Товар добавлен'
+                byuBtn.setAttribute('disabled', true);
+                minusBtn.style.display = 'none';
+                plusBtn.style.display = 'none';
+                counter.style.display = 'none';
+
 
             } else {
                 byuBtn.textContent = 'В корзину'
-
             }
                 console.log(item.id);
                 console.log(good.id)
-
             }
         )
 
@@ -196,11 +199,11 @@ modal.addEventListener('click', (element) => {
         // localArr.forEach()
         cartArr.push(createCartGood(id, img, title, price, quantity));
         console.log(cartArr)
-        cartArr.forEach(item => {
-            if(item.id == id) {
-                console.log(item)
-            }
-        })
+        element.target.textContent = 'Товар добавлен';
+        element.target.setAttribute('disabled', true);
+               // plusBtn.style.display = 'none';
+        // counter.style.display = 'none';
+
 
         localStorage.setItem('cartGoods', JSON.stringify(cartArr));
         if (isEmpty(localArr)) {
