@@ -24,6 +24,10 @@ ul {
   padding: 0;
 }
 
+.invisible {
+  display: none;
+}
+
 .green {
   position: absolute;
   top: 0;
@@ -393,6 +397,19 @@ header {
 .bottomNavItem__catalog {
   left: 5%;
   top: 20%;
+}
+
+.cartQuantityWrap {
+  width: 20px;
+  height: 20px;
+  background-color: #dfb985;
+  position: absolute;
+  top: 0;
+  left: 20px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .latest__heading {

@@ -4,11 +4,25 @@ const cartList = document.querySelector('.cartList');
 const catalogArr = [];
 let catalogFiltered = [];
 let modalArr = [];
-let cartArr = []
-// localStorage.setItem('cartGoods', JSON.stringify(local));
+let cartArr = [];
+let localArr = JSON.parse(localStorage.getItem('cartGoods'));
 
+const cartQuantity = document.querySelector('.cartQuantity');
+const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
 
-
+cartQuantity.textContent = localArr.length;
+const isEmpty = (arr) => {
+    if (arr.length> 0) {
+        return false
+    } else {
+        return true
+    }
+}
+if (isEmpty(localArr)) {
+    cartQuantityWrap.style.display = 'none'
+} else {
+    cartQuantityWrap.style.display = 'flex'
+}
 
 
 const createGoodModal = (id, img, description, title, price) => {
@@ -43,7 +57,7 @@ catalogList.addEventListener('click', (element) => {
                 modal.classList.add('modal__active');
     }
 });
-
+// filter
 const searchCatalogData = document.querySelector('#searchCatalog')[0];
 searchCatalogData.addEventListener('keyup', () => {
     let regexp = new RegExp((searchCatalogData.value).toLowerCase());
@@ -130,8 +144,23 @@ const renderGoodModal = (arr) => {
 
         const byuBtn = document.createElement('button');
         byuBtn.classList.add('buyBtn')
-        byuBtn.textContent = 'В корзину';
         modalInfo.append(byuBtn);
+        byuBtn.textContent = 'В корзину'
+
+        console.log(cartArr);
+        cartArr.forEach(item => {
+            if (item.id == good.id) {
+                byuBtn.textContent = 'Товар добавлен'
+
+            } else {
+                byuBtn.textContent = 'В корзину'
+
+            }
+                console.log(item.id);
+                console.log(good.id)
+
+            }
+        )
 
         const closeBtn = document.createElement('img');
         closeBtn.setAttribute('src', 'img/icons/closeIcon.svg');
@@ -161,19 +190,28 @@ modal.addEventListener('click', (element) => {
         price = parseInt(price.textContent.match(/\d+/));
         let quantity = closest.querySelector('.modalCounter');
         quantity = parseInt(quantity.textContent.match(/\d+/));
-        console.log(quantity)
 
         // if (localStorage.getItem('cartGoods'))
         // users = 
-        JSON.parse(localStorage.getItem('cartGoods'));
-
+        // localArr.forEach()
         cartArr.push(createCartGood(id, img, title, price, quantity));
         console.log(cartArr)
+        cartArr.forEach(item => {
+            if(item.id == id) {
+                console.log(item)
+            }
+        })
 
         localStorage.setItem('cartGoods', JSON.stringify(cartArr));
-
+        if (isEmpty(localArr)) {
+            cartQuantityWrap.style.display = 'none'
+        } else {
+            cartQuantityWrap.style.display = 'flex'
+        }          
+        cartQuantity.textContent = cartArr.length
     }
 })
+
 
 
 

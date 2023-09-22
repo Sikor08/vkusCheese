@@ -33,4 +33,16 @@
         top: 20%;
     }
 }
+.cartQuantityWrap{
+    width: 20px;
+    height: 20px;
+    background-color: $headingColor;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

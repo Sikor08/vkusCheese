@@ -11,9 +11,13 @@ contactsLink.addEventListener('click', () => {
 })
 const totalCostElem = document.querySelector('.totalCostValue');
 
-let arr = JSON.parse(localStorage.getItem('cartGoods'));
+let localArr = JSON.parse(localStorage.getItem('cartGoods'));
 const cartContent = document.querySelector('.cartContent')
 const cartList = document.querySelector('.cartList');
+
+const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
+let cartQuantity = document.querySelector('.cartQuantity');
+cartQuantity.textContent = localArr.length
 
 
 
@@ -28,6 +32,19 @@ const culcTotal = () => {
     
 })
 return sum
+}
+
+const isEmpty = (arr) => {
+    if (arr.length> 0) {
+        return false
+    } else {
+        return true
+    }
+}
+if (isEmpty(localArr)) {
+    cartQuantityWrap.style.display = 'none'
+} else {
+    cartQuantityWrap.style.display = 'flex'
 }
 
 
@@ -149,19 +166,26 @@ const renderCartGood = (arr) => {
                     totalCost.textContent = `Корзина пуста`
 
                 }
+                if (isEmpty(localArr)) {
+                    cartQuantityWrap.style.display = 'none'
+                } else {
+                    cartQuantityWrap.style.display = 'flex'
+                    cartQuantity.textContent = localArr.length
+
+                }
+                cartQuantity.textContent = localArr.length
         } )
     })
 
 }
-renderCartGood(arr);
+renderCartGood(localArr);
 
 const totalCost = document.createElement('div');
 totalCost.classList.add('totalCost');
 totalCost.textContent = 'Итого: '
 const totalCostValue = document.createElement('span');
 totalCostValue.classList.add('totalCostValue');
-console.log(arr)
-if (arr.length > 0) {
+if (localArr.length > 0) {
     totalCost.textContent = `Итого: ${culcTotal()} р`
 } else {
     totalCost.textContent = `Корзина пуста`
@@ -169,9 +193,7 @@ if (arr.length > 0) {
 }
 totalCost.append(totalCostValue)
 cartContent.append(totalCost);
-if (localStorage.getItem('cartGoods')) {
-    cartArr = JSON.parse(localStorage.getItem('cartGoods'));
-}
+
 
 
 
