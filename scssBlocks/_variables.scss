@@ -41,3 +41,6 @@ $desktopWidth: 1024px;
 .invisible{
     display: none;
 }
+.blocked{
+    pointer-events: none;
+}

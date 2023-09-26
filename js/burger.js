@@ -161,9 +161,12 @@ const renderCartGood = (arr) => {
                 localStorage.setItem('cartGoods', JSON.stringify(arr));
                 renderCartGood(arr);
                 if (arr.length > 0) {
-                    totalCost.textContent = `Итого: ${culcTotal()} р`
+                    totalCost.textContent = `Итого: ${culcTotal()} р`;
+
                 } else {
-                    totalCost.textContent = `Корзина пуста`
+                    totalCost.textContent = `Корзина пуста`;
+                    orderModal.classList.add('invisible');
+
 
                 }
                 if (isEmpty(localArr)) {
@@ -185,10 +188,14 @@ totalCost.classList.add('totalCost');
 totalCost.textContent = 'Итого: '
 const totalCostValue = document.createElement('span');
 totalCostValue.classList.add('totalCostValue');
+const orderModal = document.querySelector('.orderModal');
 if (localArr.length > 0) {
+    orderModal.classList.remove('invisible');
     totalCost.textContent = `Итого: ${culcTotal()} р`
 } else {
-    totalCost.textContent = `Корзина пуста`
+    totalCost.textContent = `Корзина пуста`;
+    orderModal.classList.add('invisible');
+
 
 }
 totalCost.append(totalCostValue)

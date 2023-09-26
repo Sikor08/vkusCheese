@@ -113,6 +113,9 @@
         object-fit: cover;
     }
     &__close{
+        border-radius: 100%;
+        padding: 4px;
+        background-color: $mainColor;
         width: 35px;
         height: 35px;
         position: absolute;
@@ -210,4 +213,33 @@
     padding: 20px 5px;
     border: 1px solid $mainColor;
     border-radius: 10px;
+}
+
+.orderModal{
+    width: 95%;
+    padding: 20px 5px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin: 20px auto;
+}
+.orderInfo{
+    display: grid;
+    place-items: center;
+    gap: 15px;
+} input {
+    padding: 10px;
+    width: 90%;
+    margin: auto;
+    border: 1px solid grey;
+    border-radius: 8px;
+
+}
+.orderBtn{
+    width: 90%;
+    padding: 10px;
+    color: $headingColor;
+    background-color: $mainColor;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
 }
