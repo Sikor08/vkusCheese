@@ -6,11 +6,11 @@ let catalogFiltered = [];
 let modalArr = [];
 let cartArr = [];
 let localArr = JSON.parse(localStorage.getItem('cartGoods'));
+console.log(localArr.length)
 
 const cartQuantity = document.querySelector('.cartQuantity');
 const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
 
-cartQuantity.textContent = localArr.length;
 const isEmpty = (arr) => {
     if (arr.length> 0) {
         return false
@@ -21,9 +21,9 @@ const isEmpty = (arr) => {
 if (isEmpty(localArr)) {
     cartQuantityWrap.style.display = 'none'
 } else {
-    cartQuantityWrap.style.display = 'flex'
+    cartQuantity.textContent = localArr.length
+    cartQuantityWrap.style.display = 'flex';
 }
-
 
 const createGoodModal = (id, img, description, title, price) => {
     return {
@@ -146,8 +146,6 @@ const renderGoodModal = (arr) => {
         byuBtn.classList.add('buyBtn')
         modalInfo.append(byuBtn);
         byuBtn.textContent = 'В корзину'
-
-        console.log(cartArr);
         cartArr.forEach(item => {
             if (item.id == good.id) {
                 byuBtn.textContent = 'Товар добавлен'
@@ -179,9 +177,7 @@ const renderGoodModal = (arr) => {
 }
 
 
-if (localStorage.getItem('cartGoods')) {
-    cartArr = JSON.parse(localStorage.getItem('cartGoods'));
-}
+
 
 modal.addEventListener('click', (element) => {
     if(element.target.classList.contains('buyBtn')) {
@@ -198,20 +194,14 @@ modal.addEventListener('click', (element) => {
         // users = 
         // localArr.forEach()
         cartArr.push(createCartGood(id, img, title, price, quantity));
-        console.log(cartArr)
+        console.log(cartArr);
         element.target.textContent = 'Товар добавлен';
+        console.log(cartQuantity)
+        cartQuantityWrap.style.display = 'flex';
+        cartQuantity.textContent = cartArr.length;
         element.target.setAttribute('disabled', true);
-               // plusBtn.style.display = 'none';
-        // counter.style.display = 'none';
-
-
         localStorage.setItem('cartGoods', JSON.stringify(cartArr));
-        if (isEmpty(localArr)) {
-            cartQuantityWrap.style.display = 'none'
-        } else {
-            cartQuantityWrap.style.display = 'flex'
-        }          
-        cartQuantity.textContent = cartArr.length
+        
     }
 })
 
