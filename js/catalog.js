@@ -58,11 +58,28 @@ catalogList.addEventListener('click', (element) => {
                 modal.classList.add('modal__active');
     }
     localArr.forEach(item => {
-        if (item.id == catalogData.getAttribute('data-id')) {
-            const btn = document.querySelector('.buyBtn')
-            btn.textContent = 'Товар добавлен'
+        console.log(item)
+        if (item.id == id) {
+            const buyBtns = document.querySelectorAll('.buyBtn');
+            buyBtns.forEach(btn => {
+                console.log(btn)
+                btn.textContent = 'Товар добавлен';
+                btn.setAttribute('disabled', true)
+            })
+            // buyBtn.textContent = 'Товар добавлен'
+            // buyBtn.setAttribute('disabled', true);
+            // minusBtn.style.display = 'none';
+            // plusBtn.style.display = 'none';
+            // counter.style.display = 'none';
+
+
+        } 
+        // else {
+        //     buyBtn.textContent = 'В корзину'
+        // }
         }
-    })
+    )
+
 });
 // filter
 const searchCatalogData = document.querySelector('#searchCatalog')[0];
@@ -153,22 +170,7 @@ const renderGoodModal = (arr) => {
         byuBtn.classList.add('buyBtn')
         modalInfo.append(byuBtn);
         byuBtn.textContent = 'В корзину'
-        cartArr.forEach(item => {
-            if (item.id == good.id) {
-                byuBtn.textContent = 'Товар добавлен'
-                byuBtn.setAttribute('disabled', true);
-                minusBtn.style.display = 'none';
-                plusBtn.style.display = 'none';
-                counter.style.display = 'none';
 
-
-            } else {
-                byuBtn.textContent = 'В корзину'
-            }
-                console.log(item.id);
-                console.log(good.id)
-            }
-        )
 
         const closeBtn = document.createElement('img');
         closeBtn.setAttribute('src', 'img/icons/closeIcon.svg');
@@ -182,10 +184,6 @@ const renderGoodModal = (arr) => {
         })
     })
 }
-
-
-
-
 modal.addEventListener('click', (element) => {
     if(element.target.classList.contains('buyBtn')) {
         const closest = element.target.closest('.modalGood');
@@ -197,16 +195,16 @@ modal.addEventListener('click', (element) => {
         let quantity = closest.querySelector('.modalCounter');
         quantity = parseInt(quantity.textContent.match(/\d+/));
 
-        cartArr.push(createCartGood(id, img, title, price, quantity));
-        console.log(cartArr);
+        localArr.push(createCartGood(id, img, title, price, quantity));
+        localStorage.setItem('cartGoods', JSON.stringify(localArr));
+
+        console.log(localArr)
         element.target.textContent = 'Товар добавлен';
-        console.log(cartQuantity)
         cartQuantityWrap.style.display = 'flex';
-        cartQuantity.textContent = cartArr.length;
+        cartQuantity.textContent = localArr.length;
         element.target.setAttribute('disabled', true);
-        localStorage.setItem('cartGoods', JSON.stringify(cartArr));
-        
     }
+
 })
 
 
