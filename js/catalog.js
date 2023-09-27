@@ -4,10 +4,7 @@ const cartList = document.querySelector('.cartList');
 const catalogArr = [];
 let catalogFiltered = [];
 let modalArr = [];
-let cartArr = [];
-
 let localArr = JSON.parse(localStorage.getItem('cartGoods'));
-console.log(localArr)
 
 const cartQuantity = document.querySelector('.cartQuantity');
 const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
@@ -25,6 +22,19 @@ if (isEmpty(localArr)) {
     cartQuantity.textContent = localArr.length
     cartQuantityWrap.style.display = 'flex';
 }
+localArr.forEach(item => {
+    console.log(item.id);
+    const goods = document.querySelectorAll('.catalogGood')
+    goods.forEach(good => {
+        if (item.id == good.getAttribute('data-id')) {
+            console.log(good.querySelector('.buyIconIn'))
+            const buyIconIn = good.querySelector('.buyIconIn');
+            buyIconIn.classList.remove('invisible');
+            buyIconIn.addEventListener('click', () => {once: true})
+        }
+    })
+
+})
 
 const createGoodModal = (id, img, description, title, price) => {
     return {
@@ -44,42 +54,43 @@ const createCartGood = (id, img, title, price, quantity) => {
         quantity
     }
 }
-catalogList.addEventListener('click', (element) => {
-    const catalogData = element.target.closest('.catalogGood');
+catalogList.addEventListener('click', (event) => {
+    const catalogData = event.target.closest('.catalogGood');
     const id = catalogData.getAttribute('data-id');
-
     const title = catalogData.querySelector('.catalogGood__title').textContent;
     const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
     const img = catalogData.querySelector('.catalogGood__img').getAttribute('src');
     const description = catalogData.querySelector('.catalogGood__description').textContent;
-    if (element.target.classList.contains('catalogGood__img') || element.target.classList.contains('catalogGood__title')) {
+    if (event.target.classList.contains('catalogGood__img') || event.target.classList.contains('catalogGood__title')) {
         modalArr.push(createGoodModal(id, img, description, title, price));
         renderGoodModal(modalArr);
                 modal.classList.add('modal__active');
     }
     localArr.forEach(item => {
-        console.log(item)
         if (item.id == id) {
+            const stepper = document.querySelector('.modalBuyWrap');
             const buyBtns = document.querySelectorAll('.buyBtn');
             buyBtns.forEach(btn => {
-                console.log(btn)
+                stepper.style.visibility = 'hidden'
                 btn.textContent = 'Товар добавлен';
-                btn.setAttribute('disabled', true)
+                btn.setAttribute('disabled', true);
             })
-            // buyBtn.textContent = 'Товар добавлен'
-            // buyBtn.setAttribute('disabled', true);
-            // minusBtn.style.display = 'none';
-            // plusBtn.style.display = 'none';
-            // counter.style.display = 'none';
-
-
         } 
-        // else {
-        //     buyBtn.textContent = 'В корзину'
-        // }
-        }
-    )
+    })
+    if (event.target.classList.contains('buyIcon')) {
+        localArr.push(createCartGood(id, img, title, price, quantity = 1));
+        localStorage.setItem('cartGoods', JSON.stringify(localArr));
+        console.log(cartQuantity)
+        cartQuantity.textContent = localArr.length;
+        cartQuantityWrap.style.display = 'flex';
+        const buyIconIn = catalogData.querySelector('.buyIconIn');
+        console.log(buyIconIn)
+        buyIconIn.classList.remove('invisible');
+        // classList.add('active')
 
+        console.log(localArr.length)
+
+    }
 });
 // filter
 const searchCatalogData = document.querySelector('#searchCatalog')[0];
@@ -113,7 +124,6 @@ const renderGoodModal = (arr) => {
         const modalInfo = document.createElement('div');
         modalInfo.classList.add('modalGood__info');
         modalGood.append(modalInfo);
-
 
         const modalTitle = document.createElement('p');
         modalTitle.textContent = good.title;
@@ -157,8 +167,6 @@ const renderGoodModal = (arr) => {
             counter.textContent = `${quantity} шт`;
         })
 
-
-
         const buyBlock = document.createElement('div');
         buyBlock.classList.add('modalBuyWrap');
         buyBlock.append(minusBtn);
@@ -198,15 +206,14 @@ modal.addEventListener('click', (element) => {
         localArr.push(createCartGood(id, img, title, price, quantity));
         localStorage.setItem('cartGoods', JSON.stringify(localArr));
 
-        console.log(localArr)
         element.target.textContent = 'Товар добавлен';
         cartQuantityWrap.style.display = 'flex';
         cartQuantity.textContent = localArr.length;
         element.target.setAttribute('disabled', true);
+        const stepper = document.querySelector('.modalBuyWrap');
+        stepper.style.visibility = 'hidden'
     }
-
 })
-
 
 
 

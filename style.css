@@ -32,6 +32,10 @@ ul {
   pointer-events: none;
 }
 
+.active {
+  display: block;
+}
+
 .green {
   position: absolute;
   top: 0;
@@ -646,8 +650,8 @@ header {
 }
 .searchWrap__icon {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 10px;
+  right: 10px;
 }
 
 .catalogList {
@@ -860,6 +864,20 @@ input {
   border: none;
   border-radius: 5px;
   margin-bottom: 20px;
+}
+
+.buyIconWrap {
+  position: relative;
+}
+
+.buyIconIn {
+  width: 15px;
+  height: 15px;
+  background-color: #dfb985;
+  position: absolute;
+  top: 13px;
+  left: 10px;
+  border-radius: 100%;
 }
 
 .good {
