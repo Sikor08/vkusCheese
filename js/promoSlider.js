@@ -55,6 +55,6 @@ const sliderImgs = document.querySelectorAll('.sliderLine__img'),
     })
     setInterval(() => {
         nextSlide()
-    }, 2000);
+    }, 4000);
     
     window.addEventListener('resize', showSlide());

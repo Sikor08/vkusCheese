@@ -1,6 +1,15 @@
 .catalog{
     padding: 100px 0 0;
 }
+.filtersWrap{
+    position: fixed;
+    top: 99px;
+    left: 0;
+    z-index: 1;
+    background-color: whitesmoke;
+    width: 98%;
+    padding: 0 5px;
+}
 .catalogFiltres{
     display: flex;
     justify-content: space-between;
@@ -36,7 +45,21 @@
         right: 10px;
     }
 }
+.catalogTabs{
+    // position: fixed;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.catalogTabItem{
+    background-color: $mainColor;
+    height: 20px;
+    color: $headingColor;
+    padding: 3px 5px;
+    border-radius: 5px;
+}
 .catalogList{
+    margin-top: 100px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
     gap: 10px;

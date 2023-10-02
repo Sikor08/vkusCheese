@@ -445,11 +445,15 @@ header {
 .latestGood__info {
   padding: 3px;
 }
+.latestGood__description {
+  display: none;
+}
 .latestGood__text {
   height: 70px;
 }
 .latestGood__img {
   width: 100%;
+  height: 200px;
   border-radius: 10px;
 }
 .latestGood__buyBtn {
@@ -617,6 +621,16 @@ header {
   padding: 100px 0 0;
 }
 
+.filtersWrap {
+  position: fixed;
+  top: 99px;
+  left: 0;
+  z-index: 1;
+  background-color: whitesmoke;
+  width: 98%;
+  padding: 0 5px;
+}
+
 .catalogFiltres {
   display: flex;
   justify-content: space-between;
@@ -654,7 +668,22 @@ header {
   right: 10px;
 }
 
+.catalogTabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.catalogTabItem {
+  background-color: #143623;
+  height: 20px;
+  color: #dfb985;
+  padding: 3px 5px;
+  border-radius: 5px;
+}
+
 .catalogList {
+  margin-top: 100px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
   gap: 10px;

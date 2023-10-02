@@ -1,3 +1,14 @@
+const burgerBtn = document.querySelector('.burgerBtn'),
+      contactsLink = document.querySelector('.headerNavLink__contacts'),
+      burgerMenu = document.querySelector('.burgerMenu');
+burgerBtn.addEventListener('click', () => {
+    burgerMenu.classList.toggle('burgerMenu__active');
+    burgerBtn.classList.toggle('burgerBtn__active');
+})
+contactsLink.addEventListener('click', () => {
+    burgerMenu.classList.toggle('burgerMenu__active');
+    burgerBtn.classList.toggle('burgerBtn__active');
+})
 const catalogList = document.querySelector('.catalogList');
 const modal = document.querySelector('.modal');
 const cartList = document.querySelector('.cartList');
@@ -23,11 +34,9 @@ if (isEmpty(localArr)) {
     cartQuantityWrap.style.display = 'flex';
 }
 localArr.forEach(item => {
-    console.log(item.id);
     const goods = document.querySelectorAll('.catalogGood')
     goods.forEach(good => {
         if (item.id == good.getAttribute('data-id')) {
-            console.log(good.querySelector('.buyIconIn'))
             const buyIconIn = good.querySelector('.buyIconIn');
             buyIconIn.classList.remove('invisible');
             buyIconIn.addEventListener('click', () => {once: true})
@@ -74,6 +83,7 @@ catalogList.addEventListener('click', (event) => {
                 stepper.style.visibility = 'hidden'
                 btn.textContent = 'Товар добавлен';
                 btn.setAttribute('disabled', true);
+
             })
         } 
     })
@@ -211,7 +221,18 @@ modal.addEventListener('click', (element) => {
         cartQuantity.textContent = localArr.length;
         element.target.setAttribute('disabled', true);
         const stepper = document.querySelector('.modalBuyWrap');
-        stepper.style.visibility = 'hidden'
+        stepper.style.visibility = 'hidden';
+        localArr.forEach(item => {
+            const goods = document.querySelectorAll('.catalogGood')
+            goods.forEach(good => {
+                if (item.id == good.getAttribute('data-id')) {
+                    console.log(good.querySelector('.buyIconIn'))
+                    const buyIconIn = good.querySelector('.buyIconIn');
+                    buyIconIn.classList.remove('invisible');
+                    buyIconIn.addEventListener('click', () => {once: true})
+                }
+            })
+        })
     }
 })
 

@@ -146,11 +146,13 @@
             <h3 class="orderModal__title">
                 Оформление заказа
             </h3>
-            <form class="orderInfo">
-                <input type="text" placeholder="Мобильный телефон">
-                <input type="text" placeholder="Ваше имя">
-                <input type="email" placeholder="E-Mail">
-                <button class="btn orderBtn" type="submit">Оформить</button>
+            <form class="orderInfo"  method="get">
+                <label for="name"></label>
+                <input id="name" type="text" name="fname" placeholder="Ваше имя">
+                <label for="tel"></label>
+
+                <input id="tel" type="text" name="sname" placeholder="Мобильный телефон">
+                <button class="btn orderBtn" type="submit" formmethod="get">Оформить</button>
             </form>
             <p class="orderInfo__notice">
                 Нажимая на кнопку "Оформить", Вы соглашаетесь с условиями Публичной оферты и подтверждаете своё Согласие на обработку персональных данных.

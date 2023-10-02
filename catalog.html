@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- <script type="text/javascript" >
+<script type="text/javascript" >
     (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
     m[i].l=1*new Date();
     for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
@@ -13,8 +13,8 @@
          trackLinks:true,
          accurateTrackBounce:true
     });
- </script> -->
- <!-- <noscript><div><img src="https://mc.yandex.ru/watch/94784246" style="position:absolute; left:-9999px;" alt="" /></div></noscript> --> -->
+ </script>
+ <noscript><div><img src="https://mc.yandex.ru/watch/94784246" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
@@ -135,6 +135,7 @@
         <div class="catalog">
             <div class="wrapper">
                 <div class="catalogWrap">
+                    <div class="filtersWrap">
                     <div class="catalogFiltres">
                         <!-- <div class="filtersField">
                             <form action="#">
@@ -164,8 +165,20 @@
                                 490,295.715 452.913,268.802 	"/></g>
                         </svg>
                     </div>
+                    <ul class="catalogTabs">
+                        <li class="catalogTabItem">
+                            <a href="#">Паштеты</a>
+                        </li>
+                        <li class="catalogTabItem">
+                            <a href="#cheese">Сыры</a>
+                        </li>                        <li class="catalogTabItem">
+                            <a href="#">Колбасы</a>
+                        </li>
+                    </ul>
+                    </div>
+
                     <ul class="catalogList">
-                        <li class="catalogGood" data-id="riet001">
+                        <li class="catalogGood" id="riet" data-id="riet001">
                             <div class="catalog__link">
                                 <img class="catalogGood__img" src="img/riet/tuna.jpg" alt="">
                                 <div class="catalogGood__info">
@@ -333,7 +346,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="catalogGood" data-id="riet008">
+                        <li class="catalogGood" id="cheese" data-id="riet008">
                             <div class="catalog__link">
                                 <img class="catalogGood__img" src="img/riet/turkeyWithDriedMushrooms.png" alt="">
                                 <div class="catalogGood__info">
@@ -356,8 +369,129 @@
                                 </div>
                             </div>
                         </li>
+
+                        <li class="catalogGood" id="cheese" data-id="cheese001">
+                            <div class="catalog__link">
+                                <img class="catalogGood__img" src="img/discount/discounts1.jpg" alt="">
+                                <div class="catalogGood__info">
+                                    <p class="catalogGood__title">
+                                        Сыр моцарелла
+                                    </p>
+                                    <p class="catalogGood__description">
+                                        Состав: Печень кролика, жир индейки, лук, морковь, масло сливочное, масло растительное, орех кедровый, соль, перец, майоран, тимьян, мускатный орех.Паштет с печенью кролика и кедровым орехом - это баночка настоящего счастья для истинного гурмана. Вкус не просто утончён - он выверен веками романской кулинарной культуры. Целые ядра кедрового ореха придают паштету поистине волшебный вкус и невероятное послевкусие.
+                                    </p>
+                                    <div class="catalogGood__priceCartWrap">
+                                        <p class="catalogGood__price">
+                                            <span class="catalogGood__priceValue">600 р</span>
+                                            за 1 шт
+                                        </p>
+                                        <div class="buyIconWrap">
+                                            <img class="buyIcon" src="img/icons/cartGoodIcon.svg" alt="">
+                                            <div class="buyIconIn invisible"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalogGood" data-id="cheese002">
+                            <div class="catalog__link">
+                                <img class="catalogGood__img" src="img/discount/discounts2.jpg" alt="">
+                                <div class="catalogGood__info">
+                                    <p class="catalogGood__title">
+                                        Сыр пармезан
+                                    </p>
+                                    <p class="catalogGood__description">
+                                        Состав: Печень кролика, жир индейки, лук, морковь, масло сливочное, масло растительное, орех кедровый, соль, перец, майоран, тимьян, мускатный орех.Паштет с печенью кролика и кедровым орехом - это баночка настоящего счастья для истинного гурмана. Вкус не просто утончён - он выверен веками романской кулинарной культуры. Целые ядра кедрового ореха придают паштету поистине волшебный вкус и невероятное послевкусие.
+                                    </p>
+                                    <div class="catalogGood__priceCartWrap">
+                                        <p class="catalogGood__price">
+                                            <span class="catalogGood__priceValue">1000 р</span>
+                                            за 1 шт
+                                        </p>
+                                        <div class="buyIconWrap">
+                                            <img class="buyIcon" src="img/icons/cartGoodIcon.svg" alt="">
+                                            <div class="buyIconIn invisible"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalogGood" data-id="cheese003">
+                            <div class="catalog__link">
+                                <img class="catalogGood__img" src="img/discount/discounts3.jpg" alt="">
+                                <div class="catalogGood__info">
+                                    <p class="catalogGood__title">
+                                        Сыр Грюер
+                                    </p>
+                                    <p class="catalogGood__description">
+                                        Состав: Печень кролика, жир индейки, лук, морковь, масло сливочное, масло растительное, орех кедровый, соль, перец, майоран, тимьян, мускатный орех.Паштет с печенью кролика и кедровым орехом - это баночка настоящего счастья для истинного гурмана. Вкус не просто утончён - он выверен веками романской кулинарной культуры. Целые ядра кедрового ореха придают паштету поистине волшебный вкус и невероятное послевкусие.
+                                    </p>
+                                    <div class="catalogGood__priceCartWrap">
+                                        <p class="catalogGood__price">
+                                            <span class="catalogGood__priceValue">600 р</span>
+                                            за 1 шт
+                                        </p>
+                                        <div class="buyIconWrap">
+                                            <img class="buyIcon" src="img/icons/cartGoodIcon.svg" alt="">
+                                            <div class="buyIconIn invisible"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalogGood" data-id="cheese004">
+                            <div class="catalog__link">
+                                <img class="catalogGood__img" src="img/discount/discounts4.jpg" alt="">
+                                <div class="catalogGood__info">
+                                    <p class="catalogGood__title">
+                                        Сыр Чедар
+                                    </p>
+                                    <p class="catalogGood__description">
+                                        Состав: Печень кролика, жир индейки, лук, морковь, масло сливочное, масло растительное, орех кедровый, соль, перец, майоран, тимьян, мускатный орех.Паштет с печенью кролика и кедровым орехом - это баночка настоящего счастья для истинного гурмана. Вкус не просто утончён - он выверен веками романской кулинарной культуры. Целые ядра кедрового ореха придают паштету поистине волшебный вкус и невероятное послевкусие.
+                                    </p>
+                                    <div class="catalogGood__priceCartWrap">
+                                        <p class="catalogGood__price">
+                                            <span class="catalogGood__priceValue">600 р</span>
+                                            за 1 шт
+                                        </p>
+                                        <div class="buyIconWrap">
+                                            <img class="buyIcon" src="img/icons/cartGoodIcon.svg" alt="">
+                                            <div class="buyIconIn invisible"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalogGood" data-id="cheese005">
+                            <div class="catalog__link">
+                                <img class="catalogGood__img" src="img/discount/discounts5.jpg" alt="">
+                                <div class="catalogGood__info">
+                                    <p class="catalogGood__title">
+                                        Сыр творожный
+                                    </p>
+                                    <p class="catalogGood__description">
+                                        Состав: Печень кролика, жир индейки, лук, морковь, масло сливочное, масло растительное, орех кедровый, соль, перец, майоран, тимьян, мускатный орех.Паштет с печенью кролика и кедровым орехом - это баночка настоящего счастья для истинного гурмана. Вкус не просто утончён - он выверен веками романской кулинарной культуры. Целые ядра кедрового ореха придают паштету поистине волшебный вкус и невероятное послевкусие.
+                                    </p>
+                                    <div class="catalogGood__priceCartWrap">
+                                        <p class="catalogGood__price">
+                                            <span class="catalogGood__priceValue">600 р</span>
+                                            за 1 шт
+                                        </p>
+                                        <div class="buyIconWrap">
+                                            <img class="buyIcon" src="img/icons/cartGoodIcon.svg" alt="">
+                                            <div class="buyIconIn invisible"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
                     </ul>
-                    <button class="catalogBtn">Показать ещё</button>
+                    <!-- <button class="catalogBtn">Показать ещё</button> -->
                     <div class="modal"></div>
 
                 </div>
@@ -486,6 +620,6 @@
     </div>
 
     <script src="js/catalog.js"></script>
-    <script src="js/main.js"></script>
+    <!-- <script src="js/main.js"></script> -->
 </body>
 </html>
