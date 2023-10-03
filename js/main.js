@@ -93,7 +93,7 @@ latestList.addEventListener('click', (event) => {
         console.log(cartQuantity)
         cartQuantity.textContent = localArr.length;
         cartQuantityWrap.style.display = 'flex';
-        const buyIconIn = catalogData.querySelector('.buyIconIn');
+        const buyIconIn = closest.querySelector('.buyIconIn');
         console.log(buyIconIn)
         buyIconIn.classList.remove('invisible');
         // classList.add('active')

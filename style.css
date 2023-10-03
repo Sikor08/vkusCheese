@@ -394,6 +394,10 @@ header {
 .bottomNavItem {
   position: absolute;
 }
+.bottomNavItem img {
+  width: 30px;
+  background-color: #dfb985;
+}
 .bottomNavItem__reg {
   right: 5%;
   top: 20%;
