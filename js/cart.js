@@ -17,6 +17,7 @@ const cartList = document.querySelector('.cartList');
 
 const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
 let cartQuantity = document.querySelector('.cartQuantity');
+console.log(localArr)
 cartQuantity.textContent = localArr.length
 
 
@@ -154,11 +155,10 @@ const renderCartGood = (arr) => {
         delBtn.classList.add('delBtn');
         cartGoodTop.append(delBtn);
         delBtn.addEventListener('click', () => {
-            console.log(arr)
             let index = arr.indexOf(obj);
                 arr.splice(index, 1);
                 localStorage.setItem('cartGoods', JSON.stringify(arr));
-                renderCartGood(arr);
+                renderCartGood(localArr);
                 if (arr.length > 0) {
                     totalCost.textContent = `Итого: ${culcTotal()} р`;
 

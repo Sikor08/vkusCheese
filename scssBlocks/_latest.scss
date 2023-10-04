@@ -8,27 +8,32 @@
     flex-direction: column;
 }
 .latestList{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    display: flex;
     gap: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
+    overflow-x: scroll;
 }
 .latestGood{
     border: 1px solid #c5c4c4;
     border-radius: 10px;
+    width: 150px;
+    height: 260px;
+    border: 1px solid grey;
     &__info{
         padding: 3px;
     }
     &__description{
         display: none;
     }
+    &__title{
+    }
     &__text{
         height: 70px;
     }
     &__img{
-        width: 100%;
         height: 200px;
         border-radius: 10px;
+        width: 150px;
     }
     &__buyBtn{
         border: none;
