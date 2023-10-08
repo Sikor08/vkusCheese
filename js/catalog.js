@@ -47,20 +47,22 @@ const init = (arr) => {
     
     })
     
-    const createGoodModal = (id, img, description, title, price) => {
+    const createGoodModal = (id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price) => {
         return {
             id,
             img,
-            description,
-            title,
+            descriptionTop,
+            descriptionConsistOf,
+            descriptionCalories,
+            descriptionRegion,
             price,
         }
     }
-    const createCartGood = (id, img, title, price, quantity) => {
+    const createCartGood = (id, img, descriptionTop, price, quantity) => {
         return {
             id,
             img,
-            title,
+            descriptionTop,
             price,
             quantity
         }
@@ -68,12 +70,15 @@ const init = (arr) => {
     catalogList.addEventListener('click', (event) => {
         const catalogData = event.target.closest('.catalogGood');
         const id = catalogData.getAttribute('data-id');
-        const title = catalogData.querySelector('.catalogGood__title').textContent;
-        const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
+        const price = catalogData.querySelector('.catalogGood__price').textContent;
         const img = catalogData.querySelector('.catalogGood__img').getAttribute('src');
-        const description = catalogData.querySelector('.catalogGood__description').textContent;
+        const descriptionTop = catalogData.querySelector('.catalogGood-description__top').textContent;
+        const descriptionConsistOf = catalogData.querySelector('.catalogGood-description__consist').textContent;
+        const descriptionCalories = catalogData.querySelector('.catalogGood-description__calories').textContent;
+        const descriptionRegion = catalogData.querySelector('.catalogGood-description__region').textContent;
+
         if (event.target.classList.contains('catalogGood__img') || event.target.classList.contains('catalogGood__title')) {
-            modalArr.push(createGoodModal(id, img, description, title, price));
+            modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             renderGoodModal(modalArr);
                     modal.classList.add('modal__active');
         }
@@ -91,9 +96,10 @@ const init = (arr) => {
         })
         if (event.target.classList.contains('buyIcon')) {
     
-            localArr.push(createCartGood(id, img, title, price, quantity = 1));
+            localArr.push(createCartGood(id, img, descriptionTop, price, quantity = 1));
             localStorage.setItem('cartGoods', JSON.stringify(localArr));
-            console.log(cartQuantity)
+
+            console.log(localArr)
             cartQuantity.textContent = localArr.length;
             cartQuantityWrap.style.display = 'flex';
             const buyIconIn = catalogData.querySelector('.buyIconIn');
@@ -138,15 +144,29 @@ const init = (arr) => {
             modalInfo.classList.add('modalGood__info');
             modalGood.append(modalInfo);
     
-            const modalTitle = document.createElement('p');
-            modalTitle.textContent = good.title;
-            modalTitle.classList.add('modalGood__title')
-            modalInfo.append(modalTitle);
-    
-            const description = document.createElement('p');
-            description.textContent = good.description;
-            description.classList.add('modalGood__description')
-            modalInfo.append(description);
+            const modalDescription = document.createElement('p');
+            modalDescription.classList.add('modalGood-description')
+            modalInfo.append(modalDescription);
+
+            const modalDescriptionTop = document.createElement('span');
+            modalDescriptionTop.classList.add('modalGood-description__top');
+            modalDescriptionTop.textContent = good.descriptionTop
+            modalDescription.append(modalDescriptionTop);
+
+            const modalDescriptionConsistOf = document.createElement('span');
+            modalDescriptionConsistOf.classList.add('modalGood-description__consistOf');
+            modalDescriptionConsistOf.textContent = good.descriptionConsistOf
+            modalDescription.append(modalDescriptionConsistOf);
+
+            const modalDescriptionCalories = document.createElement('span');
+            modalDescriptionCalories.classList.add('modalGood-description__calories');
+            modalDescriptionCalories.textContent = good.descriptionCalories
+            modalDescription.append(modalDescriptionCalories);
+
+            const modalDescriptionRegion = document.createElement('span');
+            modalDescriptionRegion.classList.add('modalGood-description__consistOf');
+            modalDescriptionRegion.textContent = good.descriptionRegion
+            modalDescription.append(modalDescriptionRegion);
             
             const modalPrice = document.createElement('p');
             modalPrice.textContent = good.price;
@@ -210,14 +230,15 @@ const init = (arr) => {
             const closest = element.target.closest('.modalGood');
             const id = closest.getAttribute('data-id');
             const img = closest.querySelector('.modalGood__img').getAttribute('src');
-            const title = closest.querySelector('.modalGood__title').textContent;
+            const descriptionTop = closest.querySelector('.modalGood-description__top').textContent
             let price = closest.querySelector('.modalGood__price');
             price = parseInt(price.textContent.match(/\d+/));
             let quantity = closest.querySelector('.modalCounter');
             quantity = parseInt(quantity.textContent.match(/\d+/));
     
-            localArr.push(createCartGood(id, img, title, price, quantity));
+            localArr.push(createCartGood(id, img, descriptionTop, price, quantity));
             localStorage.setItem('cartGoods', JSON.stringify(localArr));
+            console.log(localArr)
     
             element.target.textContent = 'Товар добавлен';
             cartQuantityWrap.style.display = 'flex';

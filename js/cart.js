@@ -1,7 +1,7 @@
 const burgerBtn = document.querySelector('.burgerBtn'),
       contactsLink = document.querySelector('.headerNavLink__contacts'),
       burgerMenu = document.querySelector('.burgerMenu');
-burgerBtn.addEventListener('click', () => {
+      burgerBtn.addEventListener('click', () => {
     burgerMenu.classList.toggle('burgerMenu__active');
     burgerBtn.classList.toggle('burgerBtn__active');
 })
@@ -52,10 +52,8 @@ if (isEmpty(localArr)) {
 
 const renderCartGood = (arr) => {
     cartList.innerHTML = '';
-
-  
-
     arr.forEach(obj => {
+        console.log(localArr)
         const cartGood = document.createElement('li');
         cartGood.classList.add('cartGood');
         cartGood.setAttribute('data-id', obj.id)
@@ -76,7 +74,7 @@ const renderCartGood = (arr) => {
 
         const title = document.createElement('p');
         title.classList.add('cartGood__title');
-        title.textContent = obj.title
+        title.textContent = obj.descriptionTop
         cartGoodTop.append(title);
 
         const cartGoodBottom = document.createElement('div');
@@ -118,7 +116,7 @@ const renderCartGood = (arr) => {
             counter.textContent = `${counterValue} шт`;
             costValue = counterValue * priceValue;
             costSpanElem.textContent = `${costValue} шт`;
-            totalCost.textContent = `Итого:${culcTotal()} р`
+            totalCost.textContent = `Итого: ${culcTotal()} р`
 
         })
         let counter = document.createElement('span');

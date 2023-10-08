@@ -707,14 +707,14 @@ header {
 .catalogGood__title {
   height: 70px;
 }
-.catalogGood__description {
+.catalogGood-description {
   display: none;
 }
 .catalogGood__img {
   width: 100%;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  height: 150px;
+  height: 160px;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -755,13 +755,15 @@ header {
 .modalGood__info {
   padding: 10px;
 }
-.modalGood__title, .modalGood__description {
+.modalGood-description {
+  display: flex;
+  flex-direction: column;
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial, sans-serif;
   margin-bottom: 10px;
 }
 .modalGood__img {
   width: 100%;
-  height: 200px;
+  height: 320px;
   -o-object-fit: cover;
      object-fit: cover;
 }
