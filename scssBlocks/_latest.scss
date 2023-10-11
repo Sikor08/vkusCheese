@@ -13,12 +13,14 @@
     padding-bottom: 40px;
     overflow-x: scroll;
 }
+.latestGood-description{
+    display: none;
+}
 .latestGood{
-    border: 1px solid #c5c4c4;
+    position: relative;
     border-radius: 10px;
     width: 150px;
-    height: 260px;
-    border: 1px solid grey;
+    border: 1px solid #dfb985;
     &__info{
         padding: 3px;
     }
@@ -26,14 +28,19 @@
         display: none;
     }
     &__title{
-    }
-    &__text{
-        height: 70px;
+        height: 55px;
     }
     &__img{
-        height: 200px;
-        border-radius: 10px;
+        height: 150px;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
         width: 150px;
+    }
+    &__discountImg{
+        width: 50px;
+        position: absolute;
+        left: 0;
+        background: inherit;
     }
     &__buyBtn{
         border: none;

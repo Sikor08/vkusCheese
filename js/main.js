@@ -9,12 +9,15 @@ contactsLink.addEventListener('click', () => {
     burgerMenu.classList.toggle('burgerMenu__active');
     burgerBtn.classList.toggle('burgerBtn__active');
 })
+const discountsList = document.querySelector('.discountsList');
 const latestList = document.querySelector('.latestList');
+
 const modal = document.querySelector('.modal');
 const cartList = document.querySelector('.cartList');
 const catalogArr = [];
 let catalogFiltered = [];
 let modalArr = [];
+
 let localArr = [];
 
 const init = (arr) => {
@@ -34,34 +37,50 @@ const init = (arr) => {
         cartQuantity.textContent = localArr.length
         cartQuantityWrap.style.display = 'flex';
     }
+    localArr.forEach(item => {
+        const goods = document.querySelectorAll('.catalogGood')
+        goods.forEach(good => {
+            if (item.id == good.getAttribute('data-id')) {
+                const buyIconIn = good.querySelector('.buyIconIn');
+                buyIconIn.classList.remove('invisible');
+                buyIconIn.addEventListener('click', () => {once: true})
+            }
+        })
     
-    const createGoodModal = (id, img, description, title, price) => {
+    })
+    
+    const createGoodModal = (id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price) => {
         return {
             id,
             img,
-            description,
-            title,
+            descriptionTop,
+            descriptionConsistOf,
+            descriptionCalories,
+            descriptionRegion,
             price,
         }
     }
-    const createCartGood = (id, img, title, price, quantity) => {
+    const createCartGood = (id, img, descriptionTop, price, quantity) => {
         return {
             id,
             img,
-            title,
+            descriptionTop,
             price,
             quantity
         }
     }
-    latestList.addEventListener('click', (event) => {
-        const closest = event.target.closest('.latestGood');
-        const id = closest.getAttribute('data-id');
-        const title = closest.querySelector('.latestGood__title').textContent;
-        const price = closest.getAttribute('data-price');
-        const img = closest.querySelector('.latestGood__img').getAttribute('src');
-        const description = closest.querySelector('.latestGood__description').textContent;
-        if (event.target.classList.contains('latestGood__img') || event.target.classList.contains('latestGood__title')) {
-            modalArr.push(createGoodModal(id, img, description, title, price));
+    discountsList.addEventListener('click', (event) => {
+        const catalogData = event.target.closest('.discountsGood');
+        const id = catalogData.getAttribute('data-id');
+        const price = catalogData.querySelector('.discountsGood__price').textContent;
+        const img = catalogData.querySelector('.discountsGood__img').getAttribute('src');
+        const descriptionTop = catalogData.querySelector('.discountsGood__title').textContent;
+        const descriptionConsistOf = catalogData.querySelector('.discountsGood-description__consist').textContent;
+        const descriptionCalories = catalogData.querySelector('.discountsGood-description__calories').textContent;
+        const descriptionRegion = catalogData.querySelector('.discountsGood-description__region').textContent;
+
+        if (event.target.classList.contains('discountsGood__img') || event.target.classList.contains('discountsGood__title')) {
+            modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             renderGoodModal(modalArr);
                     modal.classList.add('modal__active');
         }
@@ -78,19 +97,53 @@ const init = (arr) => {
             } 
         })
         if (event.target.classList.contains('buyIcon')) {
-            localArr.push(createCartGood(id, img, title, price, quantity = 1));
+    
+            localArr.push(createCartGood(id, img, descriptionTop, price, quantity = 1));
             localStorage.setItem('cartGoods', JSON.stringify(localArr));
-            console.log(cartQuantity)
+
+            console.log(localArr)
             cartQuantity.textContent = localArr.length;
             cartQuantityWrap.style.display = 'flex';
-            const buyIconIn = closest.querySelector('.buyIconIn');
+            const buyIconIn = catalogData.querySelector('.buyIconIn');
             console.log(buyIconIn)
             buyIconIn.classList.remove('invisible');
+            // classList.add('active')
+    
             console.log(localArr.length)
     
         }
     });
+    latestList.addEventListener('click', (event) => {
+        console.log('jr')
+        const catalogData = event.target.closest('.latestGood');
+        const id = catalogData.getAttribute('data-id');
+        const price = catalogData.querySelector('.latestGood__price').textContent;
+        const img = catalogData.querySelector('.latestGood__img').getAttribute('src');
+        const descriptionTop = catalogData.querySelector('.latestGood__title').textContent;
+        const descriptionConsistOf = catalogData.querySelector('.latestGood-description__consist').textContent;
+        const descriptionCalories = catalogData.querySelector('.latestGood-description__calories').textContent;
+        const descriptionRegion = catalogData.querySelector('.latestGood-description__region').textContent;
+
+        if (event.target.classList.contains('latestGood__img') || event.target.classList.contains('latestGood__title')) {
+            modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
+            renderGoodModal(modalArr);
+                    modal.classList.add('modal__active');
+        }
+        localArr.forEach(item => {
+            if (item.id == id) {
+                const stepper = document.querySelector('.modalBuyWrap');
+                const buyBtns = document.querySelectorAll('.buyBtn');
+                buyBtns.forEach(btn => {
+                    stepper.style.visibility = 'hidden'
+                    btn.textContent = 'Товар добавлен';
+                    btn.setAttribute('disabled', true);
     
+                })
+            } 
+        })
+
+    });
+
     
     const renderGoodModal = (arr) => {
     
@@ -109,15 +162,29 @@ const init = (arr) => {
             modalInfo.classList.add('modalGood__info');
             modalGood.append(modalInfo);
     
-            const modalTitle = document.createElement('p');
-            modalTitle.textContent = good.title;
-            modalTitle.classList.add('modalGood__title')
-            modalInfo.append(modalTitle);
-    
-            const description = document.createElement('p');
-            description.textContent = good.description;
-            description.classList.add('modalGood__description')
-            modalInfo.append(description);
+            const modalDescription = document.createElement('p');
+            modalDescription.classList.add('modalGood-description')
+            modalInfo.append(modalDescription);
+
+            const modalDescriptionTop = document.createElement('span');
+            modalDescriptionTop.classList.add('modalGood-description__top');
+            modalDescriptionTop.textContent = good.descriptionTop
+            modalDescription.append(modalDescriptionTop);
+
+            const modalDescriptionConsistOf = document.createElement('span');
+            modalDescriptionConsistOf.classList.add('modalGood-description__consistOf');
+            modalDescriptionConsistOf.textContent = good.descriptionConsistOf
+            modalDescription.append(modalDescriptionConsistOf);
+
+            const modalDescriptionCalories = document.createElement('span');
+            modalDescriptionCalories.classList.add('modalGood-description__calories');
+            modalDescriptionCalories.textContent = good.descriptionCalories
+            modalDescription.append(modalDescriptionCalories);
+
+            const modalDescriptionRegion = document.createElement('span');
+            modalDescriptionRegion.classList.add('modalGood-description__consistOf');
+            modalDescriptionRegion.textContent = good.descriptionRegion
+            modalDescription.append(modalDescriptionRegion);
             
             const modalPrice = document.createElement('p');
             modalPrice.textContent = good.price;
@@ -181,14 +248,15 @@ const init = (arr) => {
             const closest = element.target.closest('.modalGood');
             const id = closest.getAttribute('data-id');
             const img = closest.querySelector('.modalGood__img').getAttribute('src');
-            const title = closest.querySelector('.modalGood__title').textContent;
+            const descriptionTop = closest.querySelector('.modalGood-description__top').textContent
             let price = closest.querySelector('.modalGood__price');
             price = parseInt(price.textContent.match(/\d+/));
             let quantity = closest.querySelector('.modalCounter');
             quantity = parseInt(quantity.textContent.match(/\d+/));
     
-            localArr.push(createCartGood(id, img, title, price, quantity));
+            localArr.push(createCartGood(id, img, descriptionTop, price, quantity));
             localStorage.setItem('cartGoods', JSON.stringify(localArr));
+            console.log(localArr)
     
             element.target.textContent = 'Товар добавлен';
             cartQuantityWrap.style.display = 'flex';
@@ -196,6 +264,17 @@ const init = (arr) => {
             element.target.setAttribute('disabled', true);
             const stepper = document.querySelector('.modalBuyWrap');
             stepper.style.visibility = 'hidden';
+            localArr.forEach(item => {
+                const goods = document.querySelectorAll('.catalogGood')
+                goods.forEach(good => {
+                    if (item.id == good.getAttribute('data-id')) {
+                        console.log(good.querySelector('.buyIconIn'))
+                        const buyIconIn = good.querySelector('.buyIconIn');
+                        buyIconIn.classList.remove('invisible');
+                        buyIconIn.addEventListener('click', () => {once: true})
+                    }
+                })
+            })
         }
     })
 }
@@ -213,3 +292,10 @@ if (!JSON.parse(localStorage.getItem('cartGoods'))) {
     localArr = JSON.parse(localStorage.getItem('cartGoods'));
     init(localArr) 
 }
+
+
+
+
+
+
+

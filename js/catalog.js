@@ -70,9 +70,9 @@ const init = (arr) => {
     catalogList.addEventListener('click', (event) => {
         const catalogData = event.target.closest('.catalogGood');
         const id = catalogData.getAttribute('data-id');
-        const price = catalogData.querySelector('.catalogGood__price').textContent;
+        const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
         const img = catalogData.querySelector('.catalogGood__img').getAttribute('src');
-        const descriptionTop = catalogData.querySelector('.catalogGood-description__top').textContent;
+        const descriptionTop = catalogData.querySelector('.catalogGood__title').textContent;
         const descriptionConsistOf = catalogData.querySelector('.catalogGood-description__consist').textContent;
         const descriptionCalories = catalogData.querySelector('.catalogGood-description__calories').textContent;
         const descriptionRegion = catalogData.querySelector('.catalogGood-description__region').textContent;

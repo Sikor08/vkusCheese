@@ -82,6 +82,9 @@
                 </div>
             </div>
             </header>
+        <div class="message">
+            
+        </div>
         <nav class="bottomNav">
             <ul class="bottomNavList">
                 <li class="bottomNavItem  bottomNavItem__catalog">
@@ -115,21 +118,31 @@
             <ul class="cartList">
                
             </ul>
-            <!-- <div class="totalCost">
-                Итого: <span class="totalCostValue"></span>
-            </div> -->
+            <div class="orderTotal">
+                <h4 class="orderTotal__heading">
+                    Ваш заказ
+                </h4>
+                <div class="totalQuantity">
+                    <p class="totalQuantity__text">Товары:</p>
+                    <p class="totalQuantity__value"></p>
+                </div>
+                <div class="totalCostWrap">
+                    <p class="totalCostWrap__text">Итого: </p>
+                    <p class="totalCostWrap__value"></p>
+                </div>
+            </div>
         </div>
-        <div class="orderModal invisible">
+        <div class="orderModal">
             <h3 class="orderModal__title">
                 Оформление заказа
-            </h3>
-            <form class="orderInfo"  method="get">
+            </h3>   
+            <form id="orderForm" class="orderInfo"  method="get">
                 <label for="name"></label>
                 <input id="name" type="text" name="fname" placeholder="Ваше имя">
                 <label for="tel"></label>
 
-                <input id="tel" type="text" name="sname" placeholder="Мобильный телефон">
-                <button class="btn orderBtn" type="submit" formmethod="get">Оформить</button>
+                <input id="tel" type="text" name="te" placeholder="Мобильный телефон">
+                <button class="btn formSubmit" type="submit">Оформить</button>
             </form>
             <p class="orderInfo__notice">
                 Нажимая на кнопку "Оформить", Вы соглашаетесь с условиями Публичной оферты и подтверждаете своё Согласие на обработку персональных данных.

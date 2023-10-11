@@ -20,7 +20,7 @@
 }
 .discountsList{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     overflow-x: scroll;
     gap: 10px;
     @media (min-width: $tabletWidth) {
@@ -29,49 +29,21 @@
         gap: 20px;
     }
 }
-.discountsItem{
-    &_false{
-        .discountsItem__icon{
-            display: none;
-        }
+.discountsGood{
+    position: relative;
+    width: 150px;
+    &__img{
+        width: 150px;
+        border-top-left-radius: 20px;
+        border-bottom-right-radius: 20px;
     }
     &__icon{
         position: absolute;
         top: 5px;
-        right: 5px;
+        left: 5px;
     }
-    position: relative;
-    width: 130px;
-    height: 130px;
-    border-bottom-right-radius: 25%;
-    border-top-left-radius: 25%;
-    background-size: cover;
-    @media (min-width: $tabletWidth) {
-        width: 220px;
-        height: 220px;
-    }
-    &__1{
-        background-image: url(img/discount/discounts1.jpg);
-    }
-    &__2{
-        background-image: url(img/discount/discounts2.jpg);
-    }
-    &__3{
-        background-image: url(img/discount/discounts3.jpg);
-    }
-    &__4{
-        background-image: url(img/discount/discounts4.jpg);
-    }
-    &__5{
-        background-image: url(img/discount/discounts5.jpg);
-    }
-    &__6{
-        background-image: url(img/discount/discounts6.jpg);
-    }
-    &__7{
-        background-image: url(img/discount/discounts7.jpg);
-    }
-    &__8{
-        background-image: url(img/discount/discounts8.jpg);
-    }
+    
+}
+.discountsGood-description{
+    display: none;
 }

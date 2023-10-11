@@ -17,7 +17,6 @@ const cartList = document.querySelector('.cartList');
 
 const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
 let cartQuantity = document.querySelector('.cartQuantity');
-console.log(localArr)
 cartQuantity.textContent = localArr.length
 
 
@@ -53,7 +52,6 @@ if (isEmpty(localArr)) {
 const renderCartGood = (arr) => {
     cartList.innerHTML = '';
     arr.forEach(obj => {
-        console.log(localArr)
         const cartGood = document.createElement('li');
         cartGood.classList.add('cartGood');
         cartGood.setAttribute('data-id', obj.id)
@@ -61,8 +59,13 @@ const renderCartGood = (arr) => {
 
         const img = document.createElement('img');
         img.setAttribute('src', obj.img);
-        img.classList.add('cartGood__img')
+        img.classList.add('cartGood__img');
+
         cartGood.append(img);
+
+
+        
+        
 
         const cartGoodWrap = document.createElement('div');
         cartGoodWrap.classList.add('cartGoodWrap')
@@ -115,8 +118,8 @@ const renderCartGood = (arr) => {
             counterValue <= 1 ? counterValue = 1 : counterValue;
             counter.textContent = `${counterValue} шт`;
             costValue = counterValue * priceValue;
-            costSpanElem.textContent = `${costValue} шт`;
-            totalCost.textContent = `Итого: ${culcTotal()} р`
+            costSpanElem.textContent = `${costValue} р`;
+            totalCost.textContent = `${culcTotal()} р`
 
         })
         let counter = document.createElement('span');
@@ -126,7 +129,7 @@ const renderCartGood = (arr) => {
         stepper.append(counter);
 
         let costValue = counterValue * priceValue;
-        costSpanElem.textContent = `${costValue} шт`;
+        costSpanElem.textContent = `${costValue} р`;
 
 
         const plusBtn = document.createElement('button');
@@ -143,8 +146,8 @@ const renderCartGood = (arr) => {
 
             counter.textContent = `${counterValue} шт`;
             costValue = counterValue * priceValue;
-            costSpanElem.textContent = `${costValue} шт`;
-            totalCost.textContent = `Итого: ${culcTotal()} р`
+            costSpanElem.textContent = `${costValue} р`;
+            totalCost.textContent = `${culcTotal()} р`
 
         })
 
@@ -158,16 +161,18 @@ const renderCartGood = (arr) => {
                 localStorage.setItem('cartGoods', JSON.stringify(arr));
                 renderCartGood(localArr);
                 if (arr.length > 0) {
-                    totalCost.textContent = `Итого: ${culcTotal()} р`;
-
+                    totalCost.textContent = `${culcTotal()} р`;
+                    totalQuantity.textContent = `${localArr.length} шт`
                 } else {
-                    totalCost.textContent = `Корзина пуста`;
-                    orderModal.classList.add('invisible');
+                    orderTotal.textContent = 'Сейчас в корзине нет товаров';
+                    orderModal.classList.add('invisible')
+
 
 
                 }
                 if (isEmpty(localArr)) {
-                    cartQuantityWrap.style.display = 'none'
+                    cartQuantityWrap.style.display = 'none';
+
                 } else {
                     cartQuantityWrap.style.display = 'flex'
                     cartQuantity.textContent = localArr.length
@@ -179,26 +184,42 @@ const renderCartGood = (arr) => {
 
 }
 renderCartGood(localArr);
-
-const totalCost = document.createElement('div');
-totalCost.classList.add('totalCost');
-totalCost.textContent = 'Итого: '
-const totalCostValue = document.createElement('span');
-totalCostValue.classList.add('totalCostValue');
+const totalQuantity = document.querySelector('.totalQuantity__value')
+const totalCost = document.querySelector('.totalCostWrap__value');
+const orderTotal = document.querySelector('.orderTotal');
+totalCost.textContent = culcTotal()
 const orderModal = document.querySelector('.orderModal');
 if (localArr.length > 0) {
     orderModal.classList.remove('invisible');
-    totalCost.textContent = `Итого: ${culcTotal()} р`
+    totalQuantity.textContent = `${localArr.length} шт`
+    totalCost.textContent = `${culcTotal()} р`
 } else {
-    totalCost.textContent = `Корзина пуста`;
-    orderModal.classList.add('invisible');
-
-
+    orderTotal.textContent = `Сейчас в корзине нет товаров`;
+    orderModal.classList.add('invisible')
 }
-totalCost.append(totalCostValue)
-cartContent.append(totalCost);
-// import  {sayHi}  from './burger.js';
-// sayHi();
+const message = document.querySelector('.message')
+const formSubmit = document.querySelector('.formSubmit');
+formSubmit.addEventListener('click' , (event) => {
+
+    const orderForm = document.forms.orderForm;
+    let firstName = (orderForm.elements.fname.value);
+    let phoneNumber = (orderForm.elements.tel.value);
+    console.log(localArr)
+    localArr.splice(0, localArr.length);
+    localStorage.setItem('cartGoods', JSON.stringify(localArr));
+    orderTotal.textContent = `Сейчас в корзине нет товаров`;
+    cartQuantityWrap.style.display = 'none';
+   
+});
+
+
+
+
+
+
+
+
+
 
 
 
