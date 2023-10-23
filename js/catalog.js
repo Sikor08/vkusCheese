@@ -1,14 +1,3 @@
-const burgerBtn = document.querySelector('.burgerBtn'),
-      contactsLink = document.querySelector('.headerNavLink__contacts'),
-      burgerMenu = document.querySelector('.burgerMenu');
-burgerBtn.addEventListener('click', () => {
-    burgerMenu.classList.toggle('burgerMenu__active');
-    burgerBtn.classList.toggle('burgerBtn__active');
-})
-contactsLink.addEventListener('click', () => {
-    burgerMenu.classList.toggle('burgerMenu__active');
-    burgerBtn.classList.toggle('burgerBtn__active');
-})
 const catalogList = document.querySelector('.catalogList');
 const modal = document.querySelector('.modal');
 const cartList = document.querySelector('.cartList');
@@ -17,18 +6,18 @@ let catalogFiltered = [];
 let modalArr = [];
 
 let localArr = [];
-
-const init = (arr) => {
+const isEmpty = (arr) => {
+    if (arr.length> 0) {
+        return false
+    } else {
+        return true
+    }
+}
+const init = () => {
     const cartQuantity = document.querySelector('.cartQuantity');
     const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
     
-    const isEmpty = (arr) => {
-        if (arr.length> 0) {
-            return false
-        } else {
-            return true
-        }
-    }
+
     if (isEmpty(localArr)) {
         cartQuantityWrap.style.display = 'none'
     } else {
@@ -262,15 +251,11 @@ const init = (arr) => {
 }
 
 if (!JSON.parse(localStorage.getItem('cartGoods'))) {
-    console.log('no')
     localStorage.setItem('cartGoods', JSON.stringify(localArr));
     localArr = JSON.parse(localStorage.getItem('cartGoods'));
     console.log(localArr)
-
     init(localArr)
-   
 } else {
-    console.log('yes')
     localArr = JSON.parse(localStorage.getItem('cartGoods'));
     init(localArr) 
 }

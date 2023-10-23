@@ -187,6 +187,10 @@ header {
   top: 35px;
   right: 10px;
 }
+.telLink img {
+  width: 35px;
+  height: 35px;
+}
 @media (min-width: 500px) {
   .telLink {
     top: 15px;
@@ -368,7 +372,6 @@ header {
 }
 .bottomNavItem img {
   width: 30px;
-  background-color: #dfb985;
 }
 .bottomNavItem__reg {
   right: 5%;
@@ -797,6 +800,23 @@ header {
   border: navajowhite;
 }
 
+.good {
+  margin-top: 100px;
+}
+
+.goodSlider {
+  height: 200px;
+  border: 1px solid #000;
+}
+.goodSlider__img {
+  width: 100%;
+  height: 100%;
+}
+
+.goodWrap {
+  border-bottom: 2px solid #dfb985;
+}
+
 .cartContent {
   padding: 90px 5px 0;
   display: flex;
@@ -943,21 +963,4 @@ table {
   position: absolute;
   z-index: 10;
   display: none;
-}
-
-.good {
-  margin-top: 100px;
-}
-
-.goodSlider {
-  height: 200px;
-  border: 1px solid #000;
-}
-.goodSlider__img {
-  width: 100%;
-  height: 100%;
-}
-
-.goodWrap {
-  border-bottom: 2px solid #dfb985;
 }/*# sourceMappingURL=style.css.map */

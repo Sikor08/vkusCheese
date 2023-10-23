@@ -130,6 +130,10 @@ header{
     position: absolute;
     top: 35px;
     right: 10px;
+    img{
+        width: 35px;
+        height: 35px;
+    }
     @media (min-width: $tabletWidth) {
         top: 15px;
      }
