@@ -702,12 +702,15 @@ header {
   display: none;
 }
 .catalogGood__img {
-  width: 100%;
+  display: flex;
+  justify-content: center;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: 160px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  padding: 3px;
+}
+.catalogGood__img img {
+  width: 100%;
 }
 .catalogGood__buyBtn {
   border: none;
