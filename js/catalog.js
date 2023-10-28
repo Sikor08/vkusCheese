@@ -87,6 +87,7 @@ const init = () => {
     
             localArr.push(createCartGood(id, img, descriptionTop, price, quantity = 1));
             localStorage.setItem('cartGoods', JSON.stringify(localArr));
+        
 
             console.log(localArr)
             cartQuantity.textContent = localArr.length;

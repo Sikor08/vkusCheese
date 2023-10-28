@@ -188,17 +188,36 @@ if (localArr.length > 0) {
 }
 const message = document.querySelector('.message')
 const formSubmit = document.querySelector('.formSubmit');
-formSubmit.addEventListener('click' , (event) => {
+
+
+formSubmit.addEventListener('click' , async (event) => {
+    event.preventDefault();
 
     const orderForm = document.forms.orderForm;
     let firstName = (orderForm.elements.fname.value);
     let phoneNumber = (orderForm.elements.tel.value);
-    console.log(localArr)
-    localArr.splice(0, localArr.length);
-    localStorage.setItem('cartGoods', JSON.stringify(localArr));
-    orderTotal.textContent = `Сейчас в корзине нет товаров`;
-    cartQuantityWrap.style.display = 'none';
-   
+
+    let formData = new FormData();
+    formData.append('name', firstName);
+    formData.append('phone', phoneNumber);
+    formData.append('arrayGoods', JSON.stringify(localArr));
+
+    const response = await fetch('../send.php',{
+        method: 'POST',
+        body: formData
+    })
+
+    if(response.ok) {
+        localArr = [];
+        localStorage.setItem('cartGoods', JSON.stringify(localArr));
+        renderCartGood(localArr);
+        orderForm.reset();
+        orderTotal.textContent = `Сейчас в корзине нет товаров`;
+        cartQuantityWrap.style.display = 'none';
+        console.log('Card send')
+    } else {
+        console.log('ERROR RESPONSE:', response)
+    }
 });
 
 
