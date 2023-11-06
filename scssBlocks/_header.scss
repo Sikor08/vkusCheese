@@ -15,6 +15,11 @@ header{
     left: 0;
     width: 100%;
     z-index: 2;
+    height: 80px;
+    @media (min-width: $tabletWidth) {
+        height: 60px;
+    }
+
 }
 .headerWrap{
     position: relative;
@@ -43,7 +48,7 @@ header{
 }
 .headerNavList{
     display: none;
-    @media (min-width: $tabletWidth) {
+    @media (min-width: $desktopWidth) {
         display: flex;
         justify-content: space-between;
         flex-grow: 1;

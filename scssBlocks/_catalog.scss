@@ -1,14 +1,26 @@
 .catalog{
     padding: 100px 0 0;
 }
+.catalogWrap{
+    @media (min-width: $desktopWidth) {
+        position: relative;
+    }
+}
 .filtersWrap{
-    position: fixed;
-    top: 99px;
+    position: absolute;
+    top: 90px;
     left: 0;
     z-index: 1;
     background-color: whitesmoke;
-    width: 98%;
+    width: 99%;
     padding: 0 5px;
+    @media (min-width: $tabletWidth) {
+        top: 60px;
+    }
+    @media (min-width: $desktopWidth) {
+        top: -140px;
+    }
+
 }
 .catalogFiltres{
     display: flex;
@@ -46,10 +58,10 @@
     }
 }
 .catalogTabs{
-    // position: fixed;
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+    padding: 0 10px;
 }
 .catalogTabItem{
     background-color: $mainColor;
@@ -57,12 +69,12 @@
     color: $headingColor;
     padding: 3px 5px;
     border-radius: 5px;
-    &:nth-child(2) {
-        opacity: 0.5;
-    }
-    &:nth-child(3) {
-        opacity: 0.5;
-    }
+    // &:nth-child(2) {
+    //     opacity: 0.5;
+    // }
+    // &:nth-child(3) {
+    //     opacity: 0.5;
+    // }
 }
 .catalogList{
     margin-top: 100px;
@@ -84,16 +96,16 @@
     &-description{
         display: none;
     }
+    &__imgWrap{
+        height: 160px;
+
+    }
     &__img{
-        display: flex;
-        justify-content: center;
+ 
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
-        height: 160px;
-        padding: 3px;
-        img{
-            width: 100%;
-        }
+        width: 100%;
+        height: 100%;        
     }
     &__buyBtn{
         border: none;
@@ -122,20 +134,40 @@
     z-index: 1;
     height: 100vh;
     transition: all ease-in-out .4s;
-
+    @media (min-width: $tabletWidth) {
+    background-color: whitesmoke;
+    position: fixed;
+    z-index: 1;
+    }
+    @media (min-width: $desktopWidth) {
+        width: 100%;
+        display: flex;
+        }
     &__active{
-        top: 100px;
+        top: 78px;
         left: 0;
         transition: all ease-in-out .4s;
-
+        @media (min-width: $tabletWidth) {
+            top: 60px;
+            }
     }
 }
 .modalGood{
+    @media (min-width: $tabletWidth) {
+        position: relative;
+        display: flex;
+        margin: 1% auto;
+
+        }
+        @media (min-width: $desktopWidth) {
+            width: 51%;
+            }
     &__info{
         padding: 10px;
+        @media (min-width: $tabletWidth) {
+            padding: 5%;
+            }
     }
-
-    position: relative;
     &-description{
         display: flex;
         flex-direction: column;
@@ -144,9 +176,11 @@
     }
     &__img{
         width: 100%;
-        height: 270px;
+        height: 330px;
         object-fit: cover;
-
+        @media (min-width: $desktopWidth) {
+            width: inherit;
+            }
     }
     &__close{
         border-radius: 100%;

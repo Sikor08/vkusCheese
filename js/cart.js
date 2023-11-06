@@ -196,10 +196,12 @@ formSubmit.addEventListener('click' , async (event) => {
     const orderForm = document.forms.orderForm;
     let firstName = (orderForm.elements.fname.value);
     let phoneNumber = (orderForm.elements.tel.value);
+    let totalCost = document.querySelector('.totalCostWrap__value');
 
     let formData = new FormData();
     formData.append('name', firstName);
     formData.append('phone', phoneNumber);
+    formData.append('totalCost', totalCost);
     formData.append('arrayGoods', JSON.stringify(localArr));
 
     const response = await fetch('../send.php',{

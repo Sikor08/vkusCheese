@@ -13,7 +13,7 @@ const isEmpty = (arr) => {
         return true
     }
 }
-const init = () => {
+const init = () => {  
     const cartQuantity = document.querySelector('.cartQuantity');
     const cartQuantityWrap = document.querySelector('.cartQuantityWrap');
     
@@ -68,6 +68,7 @@ const init = () => {
 
         if (event.target.classList.contains('catalogGood__img') || event.target.classList.contains('catalogGood__title')) {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
+            modalArr.length = 1
             renderGoodModal(modalArr);
                     modal.classList.add('modal__active');
         }
@@ -210,7 +211,7 @@ const init = () => {
             closeBtn.textContent = 'закрыть';
             closeBtn.addEventListener('click', () => {
                 modal.classList.remove('modal__active')
-                modalArr.splice(0, modalArr.length);
+                modalArr = []
     
             })
         })

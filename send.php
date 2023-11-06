@@ -14,10 +14,11 @@ $goods = json_decode($_POST['arrayGoods'], true);
 
 $goodsList = "<ul>";
 foreach($goods as $item) {
+    $descriptionTop = $item['descriptionTop'];
     $id = $item['id'];
     $price = $item['price'];
     $quantity = $item['quantity'];
-    $goodsList .= "<li>ID: $id, Цена: $price, Количество: $quantity</li>";
+    $goodsList .= "<li>Наименование: $descriptionTop, ID: $id, Цена: $price, Количество: $quantity</li>";
 }
 $goodsList .= "</ul>";
 
@@ -26,9 +27,9 @@ $goodsList .= "</ul>";
 $title = "Заголовок письма";
 $body = "
 <h2>Новое письмо</h2>
-<b>Имя:$name</b> <br>
-<b>телефон: $telephone</b> <br><br>
-<b>Товары:</b><br>$goodsList
+<b>Имя заказчика:$name</b> <br>
+<b>Номер телефона: $telephone</b> <br><br>
+<b>Заказ:</b><br>$goodsList <br><br>
 ";
 
 // Настройки PHPMailer
@@ -50,7 +51,7 @@ try {
 
     // Получатель письма
     $mail->addAddress('sikor08@gmail.com');  
-    // $mail->addAddress('sikor@yandex.ru'); // Ещё один, если нужен
+    $mail->addAddress('sikor@yandex.ru'); // Ещё один, если нужен
 
     // Прикрипление файлов к письму
 if (!empty($file['name'][0])) {

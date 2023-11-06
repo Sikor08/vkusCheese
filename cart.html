@@ -36,19 +36,19 @@
                         <div class="burgerMenu">
                             <ul class="burgerNavList">
                                 <li class="headerNavLink">
-                                    <a href="#">Главная</a>
+                                    <a href="index.html">Главная</a>
                                 </li>
                                 <li class="headerNavLink">
                                     <a href="catalog.html">Каталог</a>
                                 </li>
-                                <li class="headerNavLink">Акции</li>
-                                <li class="headerNavLink">Доставка</li>
+                                <!-- <li class="headerNavLink">Акции</li>
+                                <li class="headerNavLink">Доставка</li> -->
                                 <li class="headerNavLink">
                                     <a class="headerNavLink__contacts" href="#contacts">Контакты</a>
                                 </li>
-                                <li class="headerNavLink">
+                                <!-- <li class="headerNavLink">
                                     <a class="headerNavLink__contacts" href="cart.html">Корзина</a>
-                                </li>
+                                </li> -->
                             </ul> 
                         </div>
                     </div>
@@ -92,39 +92,45 @@
             </ul>
         </nav>
         <div class="cartContent">
-            <h1>Корзина</h1>
-            <ul class="cartList">
-               
-            </ul>
-            <div class="orderTotal">
-                <h4 class="orderTotal__heading">
-                    Ваш заказ
-                </h4>
-                <div class="totalQuantity">
-                    <p class="totalQuantity__text">Товары:</p>
-                    <p class="totalQuantity__value"></p>
-                </div>
-                <div class="totalCostWrap">
-                    <p class="totalCostWrap__text">Итого: </p>
-                    <p class="totalCostWrap__value"></p>
+            <div class="wrapper">
+                <h1>Корзина</h1>
+                <ul class="cartList">
+                   
+                </ul>
+                <div class="orderTotal">
+                    <h4 class="orderTotal__heading">
+                        Ваш заказ
+                    </h4>
+                    <div class="totalQuantity">
+                        <p class="totalQuantity__text">Товары:</p>
+                        <p class="totalQuantity__value"></p>
+                    </div>
+                    <div class="totalCostWrap">
+                        <p class="totalCostWrap__text">Итого: </p>
+                        <p class="totalCostWrap__value"></p>
+                    </div>
                 </div>
             </div>
+
         </div>
         <div class="orderModal">
-            <h3 class="orderModal__title">
-                Оформление заказа
-            </h3>   
-            <form id="orderForm" class="orderInfo"  method="post">
-                <label for="name"></label>
-                <input id="name" type="text" name="fname" placeholder="Ваше имя">
-                <label for="tel"></label>
-
-                <input id="tel" type="text" name="te" placeholder="Мобильный телефон">
-                <button class="btn formSubmit" type="submit">Оформить</button>
-            </form>
-            <p class="orderInfo__notice">
-                Нажимая на кнопку "Оформить", Вы соглашаетесь с условиями Публичной оферты и подтверждаете своё Согласие на обработку персональных данных.
-            </p>
+            <div class="wrapper">
+                <h3 class="orderModal__title">
+                    Оформление заказа
+                </h3>   
+                <form id="orderForm" class="orderInfo"  method="post">
+                    <label for="name"></label>
+                    <input id="name" type="text" name="fname" placeholder="Ваше имя">
+                    <label for="tel"></label>
+    
+                    <input id="tel" type="text" name="te" placeholder="Мобильный телефон">
+                    <button class="btn formSubmit" type="submit">Оформить</button>
+                </form>
+                <p class="orderInfo__notice">
+                    Нажимая на кнопку "Оформить", Вы соглашаетесь с условиями Публичной оферты и подтверждаете своё Согласие на обработку персональных данных.
+                </p>
+            </div>
+ 
         </div>
         <div class="contacts" id="contacts">
             <div class="wrapper">
@@ -178,13 +184,13 @@
                     </div>
                 </div>
             </div>
+                
         </div>
         <div class="notice">
-            <div class="wrapper">
                 <p class="notice__text">
                     Все данные, представленные на сайте, носят исключительно информационный характер и не являются исчерпывающими. За дополнительной информацией обращайтесь к менеджерам компании по телефонам, указанным на сайте. Вся информация, предоставленная на сайте о комплектации, технических характеристиках, цветовых сочетаниях, а также стоимости продукции, носит информационный характер, и ни при каких обстоятельствах не является публичной офертой, определяемой положениями пункта 2 статьи 437 Гражданского кодекса Российской Федерации. Цены на сайте являются рекомендованными и могут отличаться от фактических цен.
                 </p>
-            </div>
+
         </div>
     </div>
     <script src="js/cart.js"></script>

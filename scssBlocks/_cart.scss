@@ -1,8 +1,5 @@
 .cartContent{
     padding: 90px 5px 0;
-    display: flex;
-     flex-direction: column;
-     align-items: center;
  }
  .cartList{
      display: grid;
@@ -14,6 +11,9 @@
      .cartGoodWrap{
          padding: 0 5px;
          width: 100%;
+         @media (min-width: $tabletWidth) {
+            width: 95%;
+         }
      }
      
      .cartGoodTop{
@@ -55,10 +55,13 @@
      }
  }
  .orderTotal{
-     width: 90%;
+     width: 95%;
      padding: 10px 15px;
      border: 1px solid #143623;
      border-radius: 10px;
+     @media (min-width: $desktopWidth) {
+        width: 51%;
+    }
  }
  .totalQuantity, .totalCostWrap{
      display: flex;
