@@ -57,6 +57,7 @@ const init = () => {
         }
     }
     catalogList.addEventListener('click', (event) => {
+        const catalogList = document.querySelector('.catalogList')
         const catalogData = event.target.closest('.catalogGood');
         const id = catalogData.getAttribute('data-id');
         const price = catalogData.querySelector('.catalogGood__priceValue').textContent;
@@ -70,7 +71,8 @@ const init = () => {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             modalArr.length = 1
             renderGoodModal(modalArr);
-                    modal.classList.add('modal__active');
+            modal.classList.add('modal__active');
+            catalogList.style.display = 'none'
         }
         localArr.forEach(item => {
             if (item.id == id) {
@@ -120,11 +122,15 @@ const init = () => {
     
     const renderGoodModal = (arr) => {
     
-        modal.innerHTML = ''
+        modal.innerHTML = '';
+        modal.classList.remove('scale-out-ver-bottom')
+
+        modal.classList.add('scale-in-ver-bottom')
+
         arr.forEach(good => {
             const modalGood = document.createElement('div');
             modalGood.classList.add('modalGood');
-            modalGood.setAttribute('data-id', good.id)
+            modalGood.setAttribute('data-id', good.id);
     
             const modalImg = document.createElement('img');
             modalImg.classList.add('modalGood__img');
@@ -211,7 +217,10 @@ const init = () => {
             closeBtn.textContent = 'закрыть';
             closeBtn.addEventListener('click', () => {
                 modal.classList.remove('modal__active')
-                modalArr = []
+                modalArr = [];
+                catalogList.style.display = 'grid';
+                modal.classList.remove('scale-in-ver-bottom');
+                modal.classList.add('scale-out-ver-bottom')
     
             })
         })
