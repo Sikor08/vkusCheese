@@ -1,5 +1,6 @@
 const discountsList = document.querySelector('.discountsList');
 const latestList = document.querySelector('.latestList');
+const container = document.querySelector('.container');
 
 const modal = document.querySelector('.modal');
 const cartList = document.querySelector('.cartList');
@@ -67,11 +68,16 @@ const init = (arr) => {
         const descriptionConsistOf = catalogData.querySelector('.discountsGood-description__consist').textContent;
         const descriptionCalories = catalogData.querySelector('.discountsGood-description__calories').textContent;
         const descriptionRegion = catalogData.querySelector('.discountsGood-description__region').textContent;
+        const container = document.querySelector('.container');
 
         if (event.target.classList.contains('discountsGood__img') || event.target.classList.contains('discountsGood__title')) {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             renderGoodModal(modalArr);
                     modal.classList.add('modal__active');
+                    modal.classList.remove('invisible')
+
+                    container.classList.add('invisible')
+
         }
         localArr.forEach(item => {
             if (item.id == id) {
@@ -116,7 +122,10 @@ const init = (arr) => {
         if (event.target.classList.contains('latestGood__img') || event.target.classList.contains('latestGood__title')) {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             renderGoodModal(modalArr);
-                    modal.classList.add('modal__active');
+            modal.classList.add('modal__active');
+            container.classList.add('invisible')
+            console.log(container)
+
         }
         localArr.forEach(item => {
             if (item.id == id) {
@@ -136,7 +145,10 @@ const init = (arr) => {
     
     const renderGoodModal = (arr) => {
     
-        modal.innerHTML = ''
+        modal.innerHTML = '';
+        modal.classList.add('scale-in-ver-bottom')
+
+        modal.classList.remove('scale-out-ver-bottom')
         arr.forEach(good => {
             const modalGood = document.createElement('div');
             modalGood.classList.add('modalGood');
@@ -227,8 +239,13 @@ const init = (arr) => {
             closeBtn.textContent = 'закрыть';
             closeBtn.addEventListener('click', () => {
                 modal.classList.remove('modal__active')
-                modalArr.splice(0, modalArr.length);
-    
+                modalArr = [];
+                modal.classList.remove('scale-in-ver-bottom');
+                modal.classList.add('scale-out-ver-bottom');
+                modal.classList.remove('modal__active');
+                modal.classList.add('modal');
+                container.classList.remove('invisible')
+
             })
         })
     }

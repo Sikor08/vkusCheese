@@ -1,3 +1,5 @@
+const container = document.querySelector('.container');
+
 const catalogList = document.querySelector('.catalogList');
 const modal = document.querySelector('.modal');
 const cartList = document.querySelector('.cartList');
@@ -66,12 +68,14 @@ const init = () => {
         const descriptionConsistOf = catalogData.querySelector('.catalogGood-description__consist').textContent;
         const descriptionCalories = catalogData.querySelector('.catalogGood-description__calories').textContent;
         const descriptionRegion = catalogData.querySelector('.catalogGood-description__region').textContent;
+        modal.classList.remove('invisible')
 
         if (event.target.classList.contains('catalogGood__img') || event.target.classList.contains('catalogGood__title')) {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             modalArr.length = 1
             renderGoodModal(modalArr);
             modal.classList.add('modal__active');
+            container.classList.add('invisible')
             catalogList.style.display = 'none'
         }
         localArr.forEach(item => {
@@ -97,11 +101,7 @@ const init = () => {
             cartQuantityWrap.style.display = 'flex';
             const buyIconIn = catalogData.querySelector('.buyIconIn');
             console.log(buyIconIn)
-            buyIconIn.classList.remove('invisible');
-            // classList.add('active')
-    
-            console.log(localArr.length)
-    
+            buyIconIn.classList.remove('invisible');    
         }
     });
     // filter
@@ -123,9 +123,10 @@ const init = () => {
     const renderGoodModal = (arr) => {
     
         modal.innerHTML = '';
+        modal.classList.add('scale-in-ver-bottom')
+
         modal.classList.remove('scale-out-ver-bottom')
 
-        modal.classList.add('scale-in-ver-bottom')
 
         arr.forEach(good => {
             const modalGood = document.createElement('div');
@@ -216,12 +217,15 @@ const init = () => {
             modalGood.append(closeBtn);
             closeBtn.textContent = 'закрыть';
             closeBtn.addEventListener('click', () => {
-                modal.classList.remove('modal__active')
+
                 modalArr = [];
                 catalogList.style.display = 'grid';
                 modal.classList.remove('scale-in-ver-bottom');
-                modal.classList.add('scale-out-ver-bottom')
-    
+                modal.classList.add('scale-out-ver-bottom');
+                modal.classList.remove('modal__active');
+                modal.classList.add('modal');
+                container.classList.remove('invisible')
+
             })
         })
     }
