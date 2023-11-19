@@ -83,6 +83,10 @@
     grid-template-columns: repeat(auto-fit, minmax(150px, 0.5fr));
     gap: 10px;
     padding-bottom: 30px;
+    @media (min-width: $desktopWidth) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
+
+    }
 }
 
 .catalogGood{
@@ -191,7 +195,9 @@
     }
   }
   @keyframes scale-out-ver-bottom {
+    
     0% {
+        position: fixed;
       -webkit-transform: scaleY(1);
               transform: scaleY(1);
       -webkit-transform-origin: 0% 100%;
@@ -209,27 +215,16 @@
   
   
 .modal{
-    height: 100vh;
-    background-color: whitesmoke;
-    position: absolute;
-    z-index: 1;
-    left: 0;
-    top: 78px;
-    transition: all ease-in-out .4s;
+    top: 0;
+    width: 100%;
     @media (min-width: $tabletWidth) {
         top: 60px;
         width: 98%;
     }
     @media (min-width: $desktopWidth) {
         width: 100%;
-        display: flex;
         }
-    &__active{
-        transition: all ease-in-out .4s;
-        @media (min-width: $tabletWidth) {
-            top: 60px;
-            }
-    }
+
 }
 .modalGood{
     background-color: whitesmoke;

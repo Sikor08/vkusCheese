@@ -20,6 +20,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+
     <title>Cheese</title>
 </head>
 <body>
@@ -119,11 +122,12 @@
                     Оформление заказа
                 </h3>   
                 <form id="orderForm" class="orderInfo"  method="post">
-                    <label for="name"></label>
-                    <input id="name" type="text" name="fname" placeholder="Ваше имя">
-                    <label for="tel"></label>
-    
-                    <input id="tel" type="text" name="te" placeholder="Мобильный телефон">
+                    <input id="name" pattern="[а-яА-ЯёЁ]" maxlength="30" class="fname" type="text" name="fname" placeholder="Ваше имя">    
+                    <!-- <input id="text" pattern="[0-9]" type="text" name="tel" placeholder="Мобильный телефон"> -->
+                    <input required type="text" id="phone-input" name="tel" data-inputmask="'mask': '+7 (999) 999-99-99'" />
+
+                    <input id="message" pattern="[а-яА-ЯёЁ]" maxlength="100" type="text" name="message" placeholder="Добавьте сообщение к заказу">
+
                     <button class="btn formSubmit" type="submit">Оформить</button>
                 </form>
                 <p class="orderInfo__notice">

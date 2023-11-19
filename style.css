@@ -382,6 +382,7 @@ header {
 .bottomNavItem__reg {
   right: 5%;
   top: 20%;
+  opacity: 0.5;
 }
 .bottomNavItem__cart {
   left: 45%;
@@ -705,6 +706,11 @@ header {
   gap: 10px;
   padding-bottom: 30px;
 }
+@media (min-width: 1050px) {
+  .catalogList {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 0.5fr));
+  }
+}
 
 .catalogGood {
   border: 1px solid #c5c4c4;
@@ -773,6 +779,7 @@ header {
 }
 @keyframes scale-out-ver-bottom {
   0% {
+    position: fixed;
     transform: scaleY(1);
     transform-origin: 0% 100%;
     opacity: 1;
@@ -784,13 +791,8 @@ header {
   }
 }
 .modal {
-  height: 100vh;
-  background-color: whitesmoke;
-  position: absolute;
-  z-index: 1;
-  left: 0;
-  top: 78px;
-  transition: all ease-in-out 0.4s;
+  top: 0;
+  width: 100%;
 }
 @media (min-width: 500px) {
   .modal {
@@ -801,15 +803,6 @@ header {
 @media (min-width: 1050px) {
   .modal {
     width: 100%;
-    display: flex;
-  }
-}
-.modal__active {
-  transition: all ease-in-out 0.4s;
-}
-@media (min-width: 500px) {
-  .modal__active {
-    top: 60px;
   }
 }
 
@@ -951,7 +944,7 @@ header {
   margin-top: 20px;
 }
 .cartGood__img {
-  width: 200px;
+  width: 105px;
   height: 105px;
 }
 .cartGood__btn {
@@ -1012,8 +1005,23 @@ input {
   border-radius: 8px;
 }
 
+#orderForm #message {
+  height: 100px;
+}
+#orderForm ::-moz-placeholder {
+  position: absolute;
+  top: 5px;
+}
+#orderForm ::placeholder {
+  position: absolute;
+  top: 5px;
+}
+#orderForm .incorrect {
+  border-color: red;
+}
+
 .formSubmit {
-  width: 90%;
+  width: 95%;
   padding: 10px;
   color: #dfb985;
   background-color: #143623;

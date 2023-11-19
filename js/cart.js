@@ -188,21 +188,56 @@ if (localArr.length > 0) {
 }
 const message = document.querySelector('.message')
 const formSubmit = document.querySelector('.formSubmit');
+formSubmit.style.opacity = .8;
+const blockButton = () => {
+    formSubmit.disabled = true
+}
 
+const unBlockButton = () => {
+    formSubmit.disabled = false
+}
 
-formSubmit.addEventListener('click' , async (event) => {
+const orderForm = document.forms.orderForm;
+    let firstName = (orderForm.elements.fname);
+    let phoneNumber = (orderForm.elements.tel);
+
+    $(document).ready(function(){
+        $('#phone-input').inputmask();
+      });
+    orderForm.addEventListener('keyup', (event) => {
+        let regExpName = /^[а-яА-Я3-9_-]{3,16}$/;
+        let regExpPhone = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/;
+        if (!regExpName.test(firstName.value)) {
+            firstName.classList.add('incorrect');
+
+        } else {
+            firstName.classList.remove('incorrect');
+
+        }
+        if (!regExpPhone.test(phoneNumber.value)) {
+            phoneNumber.classList.add('incorrect');
+        } else {
+            phoneNumber.classList.remove('incorrect');
+
+        }
+        if(!regExpName.test(firstName.value) || !regExpPhone.test(phoneNumber.value)) {
+            formSubmit.style.opacity = .8
+            blockButton()
+        } else {
+            formSubmit.style.opacity = 1;
+            unBlockButton()
+        }
+        
+    })
+
+    formSubmit.addEventListener('click' , async (event) => {
     event.preventDefault();
 
-    const orderForm = document.forms.orderForm;
-    let firstName = (orderForm.elements.fname.value);
-    let phoneNumber = (orderForm.elements.tel.value);
-    let totalCost = document.querySelector('.totalCostWrap__value');
-
     let formData = new FormData();
-    formData.append('name', firstName);
-    formData.append('phone', phoneNumber);
-    formData.append('totalCost', totalCost);
+    formData.append('name', firstName.value);
+    formData.append('phone', phoneNumber.value);
     formData.append('arrayGoods', JSON.stringify(localArr));
+
 
     const response = await fetch('../send.php',{
         method: 'POST',

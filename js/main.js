@@ -109,7 +109,6 @@ const init = (arr) => {
         }
     });
     latestList.addEventListener('click', (event) => {
-        console.log('jr')
         const catalogData = event.target.closest('.latestGood');
         const id = catalogData.getAttribute('data-id');
         const price = catalogData.querySelector('.latestGood__price').textContent;

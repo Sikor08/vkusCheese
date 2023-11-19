@@ -74,9 +74,7 @@ const init = () => {
             modalArr.push(createGoodModal(id, img, descriptionTop, descriptionConsistOf, descriptionCalories, descriptionRegion, price));
             modalArr.length = 1
             renderGoodModal(modalArr);
-            modal.classList.add('modal__active');
             container.classList.add('invisible')
-            catalogList.style.display = 'none'
         }
         localArr.forEach(item => {
             if (item.id == id) {
@@ -220,10 +218,9 @@ const init = () => {
 
                 modalArr = [];
                 catalogList.style.display = 'grid';
-                modal.classList.remove('scale-in-ver-bottom');
                 modal.classList.add('scale-out-ver-bottom');
-                modal.classList.remove('modal__active');
-                modal.classList.add('modal');
+
+                modal.classList.remove('scale-in-ver-bottom');
                 container.classList.remove('invisible')
 
             })

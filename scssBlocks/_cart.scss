@@ -32,7 +32,7 @@
      border-bottom: 1px solid grey;
      padding: 5px 0;
      &__img{
-         width: 200px;
+         width: 105px;
          height: 105px;
      }
      &__btn{
@@ -86,8 +86,22 @@
      border-radius: 8px;
  
  }
+ #orderForm{
+    #message{
+        height: 100px;
+    }
+
+    ::placeholder{
+       position: absolute;
+       top: 5px;
+    }
+    .incorrect{
+        border-color: red;
+    }
+ }
+ 
  .formSubmit{
-     width: 90%;
+     width: 95%;
      padding: 10px;
      color: $headingColor;
      background-color: $mainColor;
