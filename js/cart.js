@@ -1,5 +1,3 @@
-const totalCostElem = document.querySelector('.totalCostValue');
-
 let localArr = JSON.parse(localStorage.getItem('cartGoods'));
 const cartContent = document.querySelector('.cartContent')
 const cartList = document.querySelector('.cartList');
@@ -186,7 +184,6 @@ if (localArr.length > 0) {
     orderTotal.textContent = `Сейчас в корзине нет товаров`;
     orderModal.classList.add('invisible')
 }
-const message = document.querySelector('.message')
 const formSubmit = document.querySelector('.formSubmit');
 formSubmit.style.opacity = .8;
 const blockButton = () => {
@@ -200,6 +197,7 @@ const unBlockButton = () => {
 const orderForm = document.forms.orderForm;
     let firstName = (orderForm.elements.fname);
     let phoneNumber = (orderForm.elements.tel);
+    let message = (orderForm.elements.message)
 
     $(document).ready(function(){
         $('#phone-input').inputmask();
@@ -232,11 +230,14 @@ const orderForm = document.forms.orderForm;
 
     formSubmit.addEventListener('click' , async (event) => {
     event.preventDefault();
+    console.log(totalCost.textContent)
 
     let formData = new FormData();
     formData.append('name', firstName.value);
     formData.append('phone', phoneNumber.value);
     formData.append('arrayGoods', JSON.stringify(localArr));
+    formData.append('totalCost', totalCost.textContent)
+    formData.append('message', message.value)
 
 
     const response = await fetch('../send.php',{

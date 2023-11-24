@@ -7,6 +7,8 @@ require 'phpmailer/Exception.php';
 // Переменные, которые отправляет пользователь
 $name = $_POST['name'];
 $telephone = $_POST['phone'];
+$totalCost = $_POST['totalCost'];
+$message = $_POST['message'];
 $goods = json_decode($_POST['arrayGoods'], true);
 // $email = $_POST['email'];
 // $text = $_POST['texta'];
@@ -18,7 +20,7 @@ foreach($goods as $item) {
     $id = $item['id'];
     $price = $item['price'];
     $quantity = $item['quantity'];
-    $goodsList .= "<li>Наименование: $descriptionTop, ID: $id, Цена: $price, Количество: $quantity</li>";
+    $goodsList .= "<li>Наименование: $descriptionTop, Цена: $price, Количество: $quantity</li>";
 }
 $goodsList .= "</ul>";
 
@@ -28,8 +30,11 @@ $title = "Заголовок письма";
 $body = "
 <h2>Новое письмо</h2>
 <b>Имя заказчика:$name</b> <br>
-<b>Номер телефона: $telephone</b> <br><br>
+<b>Номер телефона:$telephone</b> <br><br>
 <b>Заказ:</b><br>$goodsList <br><br>
+<b>Заказ на сумму: $totalCost</b> <br><br>
+
+<b>Сообщение к заказу: $message</b> <br><br>
 ";
 
 // Настройки PHPMailer
